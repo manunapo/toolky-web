@@ -1,0 +1,145 @@
+/*!
+
+ =========================================================
+ * Black Dashboard Pro - v1.1.1
+ =========================================================
+
+ * Product Page: https://themes.getbootstrap.com/product/black-dashboard-pro-premium-bootstrap-4-admin/
+ * Copyright 2020 Creative Tim (http://www.creative-tim.com)
+
+
+ =========================================================
+
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+ */
+
+ // Core
+
+@import "toolky-web/custom/functions";
+@import "~bootstrap/scss/functions";
+
+@import "toolky-web/custom/variables";
+@import "~bootstrap/scss/variables";
+
+@import "toolky-web/custom/mixins";
+@import "~bootstrap/scss/mixins";
+
+ // Bootstrap components
+
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/code";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/tables";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/transitions";
+@import "~bootstrap/scss/dropdown";
+@import "~bootstrap/scss/button-group";
+@import "~bootstrap/scss/input-group";
+@import "~bootstrap/scss/custom-forms";
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/navbar";
+@import "~bootstrap/scss/card";
+@import "~bootstrap/scss/breadcrumb";
+@import "~bootstrap/scss/pagination";
+@import "~bootstrap/scss/badge";
+@import "~bootstrap/scss/jumbotron";
+@import "~bootstrap/scss/alert";
+@import "~bootstrap/scss/progress";
+@import "~bootstrap/scss/media";
+@import "~bootstrap/scss/list-group";
+@import "~bootstrap/scss/close";
+@import "~bootstrap/scss/modal";
+@import "~bootstrap/scss/tooltip";
+@import "~bootstrap/scss/popover";
+@import "~bootstrap/scss/carousel";
+@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/print";
+
+ // Custom components
+
+ @import "toolky-web/custom/reboot.scss";
+ @import "toolky-web/custom/global.scss";
+ @import "toolky-web/custom/utilities.scss";
+ @import "toolky-web/custom/alerts.scss";
+ @import "toolky-web/custom/avatars.scss";
+ @import "toolky-web/custom/badge.scss";
+ @import "toolky-web/custom/buttons.scss";
+ @import "toolky-web/custom/close.scss";
+ @import "toolky-web/custom/custom-forms.scss";
+ @import "toolky-web/custom/dropdown.scss";
+ @import "toolky-web/custom/footer.scss";
+ @import "toolky-web/custom/forms.scss";
+ @import "toolky-web/custom/grid.scss";
+ @import "toolky-web/custom/icons.scss";
+ @import "toolky-web/custom/images.scss";
+ @import "toolky-web/custom/input-group.scss";
+ @import "toolky-web/custom/info-areas.scss";
+ @import "toolky-web/custom/modal.scss";
+ @import "toolky-web/custom/nav.scss";
+ @import "toolky-web/custom/navbar.scss";
+ @import "toolky-web/custom/pagination.scss";
+ @import "toolky-web/custom/tabs.scss";
+ @import "toolky-web/custom/pills.scss";
+ @import "toolky-web/custom/popover.scss";
+ @import "toolky-web/custom/progress.scss";
+ @import "toolky-web/custom/type.scss";
+ @import "toolky-web/custom/tables";
+ @import "toolky-web/custom/checkboxes-radio";
+ @import "toolky-web/custom/fixed-plugin";
+ @import "toolky-web/custom/sidebar-and-main-panel.scss";
+ @import "toolky-web/custom/misc.scss";
+ @import "toolky-web/custom/rtl.scss";
+ @import "toolky-web/custom/timeline.scss";
+
+ // Vendor / Plugins
+
+@import "toolky-web/custom/vendor/plugin-datetimepicker.scss";
+@import "toolky-web/custom/vendor/plugin-nouislider.scss";
+@import "toolky-web/custom/vendor/plugin-fullcalendar.scss";
+@import "toolky-web/custom/vendor/plugin-sweetalert2.scss";
+@import "toolky-web/custom/vendor/plugin-bootstrap-switch.scss";
+@import "toolky-web/custom/vendor/plugin-bootstrap-select.scss";
+@import "toolky-web/custom/vendor/plugin-jasny-fileupload.scss";
+@import "toolky-web/custom/vendor/plugin-tagsinput.scss";
+@import "toolky-web/custom/vendor/plugin-perfect-scrollbar.scss";
+@import "toolky-web/custom/vendor/plugin-jquery.jvectormap.scss";
+@import "toolky-web/custom/vendor/plugin-datatables.net.scss";
+@import "toolky-web/custom/vendor/plugin-animate-bootstrap-notify.scss";
+@import "toolky-web/custom/vendor/plugin-card-wizard.scss";
+@import "toolky-web/custom/vendor/plugin-chartjs.scss";
+
+// example pages and sections
+
+@import "toolky-web/custom/example-pages.scss";
+
+// light mode
+
+@import "toolky-web/custom/white-content.scss";
+
+// Cards
+
+@import 'toolky-web/custom/card';
+@import "toolky-web/custom/cards/card-chart";
+@import "toolky-web/custom/cards/card-map";
+@import "toolky-web/custom/cards/card-user";
+@import "toolky-web/custom/cards/card-task";
+@import "toolky-web/custom/cards/card-animation-on-hover";
+@import "toolky-web/custom/cards/card-collapse";
+@import "toolky-web/custom/cards/card-contributions";
+@import "toolky-web/custom/cards/card-lock";
+@import "toolky-web/custom/cards/card-pricing";
+@import "toolky-web/custom/cards/card-profile";
+@import "toolky-web/custom/cards/card-plain";
+@import "toolky-web/custom/cards/card-register";
+@import "toolky-web/custom/cards/card-stats";
+@import "toolky-web/custom/cards/card-subcategories";
+@import "toolky-web/custom/cards/card-testimonials";
+@import "toolky-web/custom/cards/card-wizard";
+
+// React Differences
+@import "toolky-web/react/react-differences";
