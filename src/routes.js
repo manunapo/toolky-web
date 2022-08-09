@@ -18,6 +18,7 @@
 import Password from "views/tools/Password.js";
 import SiteSpeed from "views/tools/SiteSpeed.js";
 import Base64 from "views/tools/Base64.js";
+import Jwt from "views/tools/Jwt.js";
 import Home from "views/Home.js";
 import Pricing from "views/pages/Pricing.js";
 import Timeline from "views/pages/Timeline.js";
@@ -50,7 +51,7 @@ const routes = [
         name: "JWT",
         subname: "Decode",
         mini: "JW",
-        component: Timeline,
+        component: Jwt,
         layout: "/tools",
       },
       {
