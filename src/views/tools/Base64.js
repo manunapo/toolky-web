@@ -62,7 +62,6 @@ const Base64 = (props) => {
       data: JSON.stringify(data),
       url
     };
-    console.log(data);
     axios(options)
       .then(function (response) {
         if (action === "enc") {
@@ -96,7 +95,7 @@ const Base64 = (props) => {
                       type="textarea"
                       className="min-height"
                       value={encodeTextArea}
-                      onChange={(handleEncodeTextChange)}
+                      onChange={handleEncodeTextChange}
                     />
                   </FormGroup>
                 </Form>
@@ -209,48 +208,35 @@ const Base64 = (props) => {
                       type="submit"
                       onClick={() => handleDecoding()}
                     >
-                      Encode
+                      Decode
                     </Button>
                   </Col>
                 </Row>
               </CardFooter>
             </Card>
           </Col>
-          <Col xs="12">
-            <Card className="card-stats">
-              <CardHeader>
-                <Row>
-                  <Col className="text-left">
-                    <h5 className="card-category">Encoding & Decoding</h5>
-                    <CardTitle tag="h2">Base64</CardTitle>
-                  </Col>
-                </Row>
-              </CardHeader>
-              <CardBody>
-                <Collapse role="tabpanel" isOpen={openedCollapseOne}>
-                  <CardBody>
-                    <h5 className="card-category">What is base64?</h5>
-                    Base64 is designed to carry data stored in binary formats across channels that only reliably support text content.
-                    Base64 is particularly prevalent on the World Wide Web where one of its uses is the ability to embed image files or other binary assets inside textual assets such as HTML and CSS files.
-                    <h5 className="card-category"></h5>
-                    <h5 className="card-category">Why use Base64 Encoder/Decoder?</h5>
-                    The Base64 Decoder Encoder is generally used when there is a need to encode or decode binary information.
-
-                    The result data will further need to be stored and transferred over the media that is created to deal with the textual information.
-
-                    The 64-bit decoder provides an option to decode unlimited characters without any hurdle.
-                    It is widely used by several users because it provides the following functions:
-
-                    <h5 className="card-category"></h5>
-                    <h5 className="card-category">Base64 Encode</h5>
-                    This function helps you to easily encode any string or query within a fraction of seconds.
-                    If you encode Base64 the text "Many hands make light work.", its output result will be:
-
-                    “TWFueSBoYW5kcyBtYWtlIGxpZ2h0IHdvcmsu”
-                  </CardBody>
-                </Collapse>
-              </CardBody>
-            </Card>
+          <Col sx="12">
+            <h3 className="mt-5">Encoding & Decoding Base64</h3>
+            <h4 className="">What is Base64?</h4>
+            <p>
+              Base64 is designed to carry data stored in binary formats across channels that only reliably support text content.
+              Base64 is particularly prevalent on the World Wide Web where one of its uses is the ability to embed image files or other binary assets inside textual assets such as HTML and CSS files.
+            </p>
+            <h4 className="mt-3">Why use Base64 Encoder/Decoder?</h4>
+            <p>
+              The Base64 Decoder Encoder is generally used when there is a need to encode or decode binary information.
+              The result data will further need to be stored and transferred over the media that is created to deal with the textual information.
+              The 64-bit decoder provides an option to decode unlimited characters without any hurdle.
+              It is widely used by several users because it provides the following functions:
+            </p>
+            <h4 className="mt-3">Base64 Encode</h4>
+            <p>
+              This function helps you to easily encode any string or query within a fraction of seconds.
+              If you encode Base64 the text "Many hands make light work.", its output result will be:
+              <br />
+              <br />
+              “TWFueSBoYW5kcyBtYWtlIGxpZ2h0IHdvcmsu”
+            </p>
           </Col>
         </Row>
       </div>
