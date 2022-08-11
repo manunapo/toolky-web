@@ -17,9 +17,20 @@ import {
 import { callAPI } from "calls/AxiosWrapper.js";
 
 const Jwt = (props) => {
-  const [encodedJwtTextArea, setEncodedJwtTextArea] = React.useState("");
-  const [decodedHeaderJwtTextArea, setDecodedHeaderJwtTextArea] = React.useState("");
-  const [decodedPayloadJwtTextArea, setDecodedPayloadJwtTextArea] = React.useState("");
+  const initialJwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+  const initialHeader = {
+    "alg": "HS256",
+    "typ": "JWT"
+  };
+  const initialPayload = {
+    "sub": "1234567890",
+    "name": "John Doe",
+    "iat": 1516239022
+  };
+
+  const [encodedJwtTextArea, setEncodedJwtTextArea] = React.useState(initialJwt);
+  const [decodedHeaderJwtTextArea, setDecodedHeaderJwtTextArea] = React.useState(JSON.stringify(initialHeader,null,4));
+  const [decodedPayloadJwtTextArea, setDecodedPayloadJwtTextArea] = React.useState(JSON.stringify(initialPayload,null,4));
 
   function thenHook(response) {
     try {
@@ -74,7 +85,7 @@ const Jwt = (props) => {
                     <FormGroup>
                       <Input
                         type="textarea"
-                        className="min-height"
+                        className="min-height-200"
                         value={encodedJwtTextArea}
                         onChange={handleJwtDecoding}
                       />
@@ -93,14 +104,14 @@ const Jwt = (props) => {
                     <FormGroup>
                       <Input
                         type="textarea"
-                        className="min-height"
+                        className="min-height-200"
                         value={decodedHeaderJwtTextArea}
                         onChange={() => function doNothing() { }} // To avoid dom warning, readOnly would change the style.
                       />
                       <label className="mt-4">Payload:</label>
                       <Input
                         type="textarea"
-                        className="min-height"
+                        className="min-height-200"
                         value={decodedPayloadJwtTextArea}
                         onChange={() => function doNothing() { }} // To avoid dom warning, readOnly would change the style.
                       />
