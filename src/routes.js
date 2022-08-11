@@ -18,6 +18,7 @@
 import Password from "views/tools/Password.js";
 import SiteSpeed from "views/tools/SiteSpeed.js";
 import Base64 from "views/tools/Base64.js";
+import Jwt from "views/tools/Jwt.js";
 import Home from "views/Home.js";
 import Pricing from "views/pages/Pricing.js";
 import Timeline from "views/pages/Timeline.js";
@@ -50,7 +51,7 @@ const routes = [
         name: "JWT",
         subname: "Decode",
         mini: "JW",
-        component: Timeline,
+        component: Jwt,
         layout: "/tools",
       },
       {
@@ -58,6 +59,14 @@ const routes = [
         name: "JSON",
         subname: "Stringify",
         mini: "JS",
+        component: Timeline,
+        layout: "/tools",
+      },
+      {
+        path: "/json",
+        name: "Time Formatter",
+        subname: "Time",
+        mini: "TF",
         component: Timeline,
         layout: "/tools",
       },
@@ -167,6 +176,15 @@ const routes = [
         component: Pricing,
         layout: "/tools",
       },
+      {
+        path: "/mailval",
+        name: "Email",
+        subname: "Validator",
+        mini: "MV",
+        component: Pricing,
+        layout: "/tools",
+        description: "https://verifier.meetchopra.com/,https://www.mailboxvalidator.com/plans#api",
+      },
     ],
   },
   {
@@ -178,11 +196,39 @@ const routes = [
     views: [
       {
         path: "/iplookup",
-        name: "IP Lookup",
-        subname: "Location",
+        name: "IP Location",
+        subname: "Lookup",
         mini: "IP",
         component: Pricing,
         layout: "/tools",
+        description: "https://github.com/fawazahmed0/cloudflare-trace-api,https://www.myip.com/api-docs/",
+      },
+      {
+        path: "/domainrep",
+        name: "Domain Reputation",
+        subname: "Lookup",
+        mini: "DR",
+        component: Pricing,
+        layout: "/tools",
+        description: "https://github.com/public-apis/public-apis#anti-malware",
+      },
+      {
+        path: "/qrcode",
+        name: "Creator",
+        subname: "QR Code",
+        mini: "QR",
+        component: Pricing,
+        layout: "/tools",
+        description: "https://goqr.me/api/doc/",
+      },
+      {
+        path: "/urlshort",
+        name: "Shortener",
+        subname: "URLs",
+        mini: "SU",
+        component: Pricing,
+        layout: "/tools",
+        description: "https://github.com/robvanbakel/gotiny-api",
       },
     ],
   },
