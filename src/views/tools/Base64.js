@@ -19,11 +19,13 @@ import {
 import { callAPI } from "calls/AxiosWrapper.js";
 
 const Base64 = (props) => {
+  const initialEncData = "eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ"
+  const initialDecData = "ZXlKemRXSWlPaUl4TWpNME5UWTNPRGt3SWl3aWJtRnRaU0k2SWtwdmFHNGdSRzlsSWl3aWFXRjBJam94TlRFMk1qTTVNREl5ZlE="
   const [openedCollapseOne, setopenedCollapseOne] = React.useState(true);
   const [encodeCharset, setEncodeCharset] = React.useState({ value: "1", label: "ascii" });
   const [decodeCharset, setDecodeCharset] = React.useState({ value: "1", label: "ascii" });
-  const [encodeTextArea, setEncodeTextArea] = React.useState("");
-  const [decodeTextArea, setDecodeTextArea] = React.useState("");
+  const [encodeTextArea, setEncodeTextArea] = React.useState(initialEncData);
+  const [decodeTextArea, setDecodeTextArea] = React.useState(initialDecData);
 
   function thenEncHook(response) {
     setDecodeTextArea(response.data.value);
@@ -87,7 +89,7 @@ const Base64 = (props) => {
                   <FormGroup>
                     <Input
                       type="textarea"
-                      className="min-height"
+                      className="min-height-200"
                       value={encodeTextArea}
                       onChange={handleEncodeTextChange}
                     />
@@ -111,19 +113,6 @@ const Base64 = (props) => {
                             />
                             <span className="form-check-sign" />
                             ASCII
-                          </Label>
-                        </Col>
-                        <Col className="checkbox-radios" xs="3">
-                          <Label check>
-                            <Input
-                              defaultValue="utf-8"
-                              id="utf8EncodeRadio"
-                              name="encodeCharset"
-                              type="radio"
-                              disabled={true}
-                            />
-                            <span className="form-check-sign" />
-                            UTF-8
                           </Label>
                         </Col>
                       </Row>
@@ -154,7 +143,7 @@ const Base64 = (props) => {
                   <FormGroup>
                     <Input
                       type="textarea"
-                      className="min-height"
+                      className="min-height-200"
                       value={decodeTextArea}
                       onChange={handleDecodeTextChange}
                     />
@@ -178,19 +167,6 @@ const Base64 = (props) => {
                             />
                             <span className="form-check-sign" />
                             ASCII
-                          </Label>
-                        </Col>
-                        <Col className="checkbox-radios" xs="3">
-                          <Label check>
-                            <Input
-                              defaultValue="utf-8"
-                              id="utf8DecodeRadio"
-                              name="decodeCharset"
-                              type="radio"
-                              disabled={true}
-                            />
-                            <span className="form-check-sign" />
-                            UTF-8
                           </Label>
                         </Col>
                       </Row>

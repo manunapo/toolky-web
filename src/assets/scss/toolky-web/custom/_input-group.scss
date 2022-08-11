@@ -218,8 +218,12 @@ textarea.form-control {
   }
 }
 
-textarea.min-height {
+textarea.min-height-200 {
   min-height: 200px;
+}
+
+textarea.min-height-250 {
+  min-height: 250px;
 }
 
 .has-success,

@@ -19,6 +19,7 @@ import Password from "views/tools/Password.js";
 import SiteSpeed from "views/tools/SiteSpeed.js";
 import Base64 from "views/tools/Base64.js";
 import Jwt from "views/tools/Jwt.js";
+import Json from "views/tools/Json.js";
 import Home from "views/Home.js";
 import Pricing from "views/pages/Pricing.js";
 import Timeline from "views/pages/Timeline.js";
@@ -59,11 +60,11 @@ const routes = [
         name: "JSON",
         subname: "Stringify",
         mini: "JS",
-        component: Timeline,
+        component: Json,
         layout: "/tools",
       },
       {
-        path: "/json",
+        path: "/timeformat",
         name: "Time Formatter",
         subname: "Time",
         mini: "TF",
