@@ -43,7 +43,7 @@ const Jwt = (props) => {
       setDecodedPayloadJwtTextArea(JSON.stringify(JSON.parse(response.data.payload), null, 4))
     } catch (e) {
       setDecodedPayloadJwtTextArea(response.data.payload)
-      props.handleNotification("JWT Payload is encrypted", "warning");
+      props.handleNotification("JWT Payload may be incorrect", "warning");
     }
     if (response.data.error === "jwt" || response.data.error === "header") {
       props.handleNotification(response.data.msg, "danger");
