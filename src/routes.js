@@ -15,14 +15,14 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import Password from "views/tools/Password.js";
-import SiteSpeed from "views/tools/SiteSpeed.js";
-import Base64 from "views/tools/Base64.js";
-import Jwt from "views/tools/Jwt.js";
-import Json from "views/tools/Json.js";
+import Password from "views/developer/Password.js";
+import SiteSpeed from "views/developer/SiteSpeed.js";
+import Base64 from "views/developer/Base64.js";
+import Jwt from "views/developer/Jwt.js";
+import Json from "views/developer/Json.js";
 import Home from "views/Home.js";
 import Pricing from "views/pages/Pricing.js";
-import Timeline from "views/pages/Timeline.js";
+import Timestamp from "views/developer/Timestamp.js";
 
 const routes = [
   {
@@ -64,11 +64,11 @@ const routes = [
         layout: "/tools",
       },
       {
-        path: "/timeformat",
-        name: "Time Formatter",
-        subname: "Time",
-        mini: "TF",
-        component: Timeline,
+        path: "/timestamp",
+        name: "Timestamp",
+        subname: "Epoch",
+        mini: "TS",
+        component: Timestamp,
         layout: "/tools",
       },
     ],

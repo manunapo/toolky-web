@@ -12,4 +12,5 @@ Get your visitor's country from their IP http://country.is/
 
 
 TO ADD:
-Initial examples in the tools: Base64, JWT, JSON
+Limit amout of notifications.
+Change fixed pluging to question mark, plus add feedback form access in there.

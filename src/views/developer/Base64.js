@@ -19,8 +19,8 @@ import {
 import { callAPI } from "calls/AxiosWrapper.js";
 
 const Base64 = (props) => {
-  const initialEncData = "eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ"
-  const initialDecData = "ZXlKemRXSWlPaUl4TWpNME5UWTNPRGt3SWl3aWJtRnRaU0k2SWtwdmFHNGdSRzlsSWl3aWFXRjBJam94TlRFMk1qTTVNREl5ZlE="
+  const initialEncData = "clientId:clientSecret"
+  const initialDecData = "Y2xpZW50SWQ6Y2xpZW50U2VjcmV0"
   const [openedCollapseOne, setopenedCollapseOne] = React.useState(true);
   const [encodeCharset, setEncodeCharset] = React.useState({ value: "1", label: "ascii" });
   const [decodeCharset, setDecodeCharset] = React.useState({ value: "1", label: "ascii" });
