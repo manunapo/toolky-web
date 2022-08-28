@@ -85,7 +85,7 @@ const Jwt = (props) => {
                     <FormGroup>
                       <Input
                         type="textarea"
-                        className="min-height-200"
+                        className="resizable"
                         value={encodedJwtTextArea}
                         onChange={handleJwtDecoding}
                       />
@@ -104,14 +104,14 @@ const Jwt = (props) => {
                     <FormGroup>
                       <Input
                         type="textarea"
-                        className="min-height-200"
+                        className="resizable"
                         value={decodedHeaderJwtTextArea}
                         onChange={() => function doNothing() { }} // To avoid dom warning, readOnly would change the style.
                       />
                       <label className="mt-4">Payload:</label>
                       <Input
                         type="textarea"
-                        className="min-height-200"
+                        className="resizable"
                         value={decodedPayloadJwtTextArea}
                         onChange={() => function doNothing() { }} // To avoid dom warning, readOnly would change the style.
                       />

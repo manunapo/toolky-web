@@ -94,7 +94,7 @@ const Json = (props) => {
                     <FormGroup>
                       <Input
                         type="textarea"
-                        className="min-height-250"
+                        className="resizable"
                         value={rawJsonTextArea}
                         onChange={handleRawJsonTextArea}
                       />
@@ -113,7 +113,7 @@ const Json = (props) => {
                     <FormGroup>
                       <Input
                         type="textarea"
-                        className="min-height-250"
+                        className="resizable"
                         value={stringifyJsonTextArea}
                         onChange={handleStringifyJsonTextArea}
                       />

@@ -14,3 +14,8 @@ Get your visitor's country from their IP http://country.is/
 TO ADD:
 Limit amout of notifications.
 Change fixed pluging to question mark, plus add feedback form access in there.
+Fix text area in comments section to match height.
+Default Light mode.
+Review amount of action/notifications JWT decoder
+Review font size
+Feedback section in home????
