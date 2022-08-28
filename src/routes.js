@@ -16,13 +16,13 @@
 
 */
 import Password from "views/developer/Password.js";
-import SiteSpeed from "views/developer/SiteSpeed.js";
 import Base64 from "views/developer/Base64.js";
 import Jwt from "views/developer/Jwt.js";
 import Json from "views/developer/Json.js";
 import Home from "views/Home.js";
-import Pricing from "views/pages/Pricing.js";
 import Timestamp from "views/developer/Timestamp.js";
+import TextCounter from "views/text/TextCounter.js";
+import CaseConverter from "views/text/CaseConverter.js";
 
 const routes = [
   {
@@ -81,48 +81,24 @@ const routes = [
     state: "textCollapse",
     views: [
       {
-        path: "/countwords",
-        name: "Words",
-        subname: "Count",
-        mini: "CW",
-        component: Pricing,
+        path: "/textcounter",
+        name: "Characters Calculator",
+        subname: "Online",
+        mini: "TC",
+        component: TextCounter,
         layout: "/tools",
       },
       {
-        path: "/countletters",
-        name: "Letters",
-        subname: "Count",
-        mini: "CL",
-        component: Pricing,
-        layout: "/tools",
-      },
-      {
-        path: "/uppercase",
-        name: "Uppercase",
-        subname: "To",
-        mini: "UC",
-        component: Pricing,
-        layout: "/tools",
-      },
-      {
-        path: "/lowercase",
-        name: "Lowercase",
-        subname: "To",
-        mini: "LC",
-        component: Pricing,
-        layout: "/tools",
-      },
-      {
-        path: "/camelcase",
-        name: "Camel Case",
-        subname: "To",
+        path: "/caseconverter",
+        name: "Case Converter",
+        subname: "Online",
         mini: "CC",
-        component: Pricing,
+        component: CaseConverter,
         layout: "/tools",
-      },
+      }
     ],
   },
-  {
+  /* {
     collapse: true,
     name: "SEO",
     icon: "tim-icons icon-planet",
@@ -232,7 +208,7 @@ const routes = [
         description: "https://github.com/robvanbakel/gotiny-api",
       },
     ],
-  },
+  }, */
   {
     collapse: true,
     name: "Password",

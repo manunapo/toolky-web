@@ -89,7 +89,7 @@ const Base64 = (props) => {
                   <FormGroup>
                     <Input
                       type="textarea"
-                      className="min-height-200"
+                      className="resizable"
                       value={encodeTextArea}
                       onChange={handleEncodeTextChange}
                     />
@@ -143,7 +143,7 @@ const Base64 = (props) => {
                   <FormGroup>
                     <Input
                       type="textarea"
-                      className="min-height-200"
+                      className="resizable"
                       value={decodeTextArea}
                       onChange={handleDecodeTextChange}
                     />
