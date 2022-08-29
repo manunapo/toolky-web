@@ -1,292 +1,215 @@
 import { useState } from "react";
+
 // reactstrap components
 import {
-  Badge,
   Card,
+  CardHeader,
   CardBody,
   CardTitle,
   Row,
   Col,
+  FormGroup,
+  Form,
   Input,
-  Table,
+  CardFooter,
+  Button,
 } from "reactstrap";
 
 const CaseConverter = (props) => {
-  const [text, setText] = useState();
-  const [totalCharacters, setTotalCharacters] = useState(0);
-  const [totalCharactersWithoutSpaces, setTotalCharactersWithoutSpaces] = useState(0);
-  const [totalWords, setTotalWords] = useState(0);
-  const [totalSentences, setTotalSentences] = useState(0);
-  const [totalParagraphs, setTotalParagraphs] = useState(0);
-  const [uniqueWords, setUniqueWords] = useState(0);
-  const [readingTime, setReadingTime] = useState(0);
-  const [keywordDensityTableBody, setKeywordDensityTableBody] = useState(
-    <tbody>
-      <tr>
-        <td>
-          Start typing to get a list of frequently used keywords.
-        </td>
-      </tr>
-    </tbody>
-  );
+  const [textArea, setTextArea] = useState("");
 
-  function isNumber(char) {
-    return /^\d$/.test(char);
-  };
-
-  function containsNumber(str) {
-    return /\d/.test(str);
-  };
-
-  function containsAnyLetter(str) {
-    return /[a-zA-Z]/.test(str);
-  };
-
-  function isLetter(char) {
-    return char.toLowerCase() !== char.toUpperCase();
-  };
-
-  function isUppercase(word) {
-    return /^\p{Lu}/u.test(word);
+  String.prototype.randomCase = function () {
+    var flip = '';
+    for (var i = 0; i < this.length; i++) {
+      if (Math.random() > .5) {
+        flip += this.charAt(i).toUpperCase();
+      } else {
+        flip += this.charAt(i).toLowerCase();
+      }
+    }
+    return flip;
   }
 
-  const handleTextChange = event => {
-    let newText = event.target.value;
+  String.prototype.toCamelCase = function () {
+    let string = this.toLowerCase().replace(/[^A-Za-z0-9]/g, ' ').split(' ')
+      .reduce((result, word) => result + word.toLowerCase().toTitleCase())
+    return string.charAt(0).toLowerCase() + string.slice(1)
+  }
+  String.prototype.toTitleCase = function () {
+    return this.replace(
+      /\w\S*/g,
+      function (txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+      }
+    );
+  }
 
-    setText(newText);
+  String.prototype.toggleCase = function () {
+    var stringArray = this.valueOf().split(''); // Turn string into array
 
-    setTotalCharacters(newText.length);
-
-    setTotalCharactersWithoutSpaces(newText.replaceAll(/[ \n]/g, '').length);
-
-    const paragraphs = newText.split('\n').filter(function (e) {
-      return e !== "";
-    });
-    setTotalParagraphs(paragraphs.length);
-
-    var sentences = [];
-    paragraphs.forEach(element => {
-      let subSentences = element.replaceAll(/[?|!]/g, '.').split('.').filter(function (e) {
-        return (e.replaceAll(/ +/g, "") !== "");
-      });
-      subSentences = subSentences.map(s => s.trim());
-      sentences.push(...subSentences);
-    });
-    setTotalSentences(sentences.filter(s => isUppercase(s[0])).length);
-
-    // word:amount
-    var words = {};
-    var totalWords = 0;
-    sentences.forEach(sentence => {
-      // match spaces, new lines, tabs -> /\s\s+/g
-      // match +1 spaces -> /  +/g
-      sentence.replace(/\s\s+/g, ' ');
-      let word = "";
-      for (var i = 0; i < sentence.length; i++) {
-        let c = sentence.charAt(i);
-        let newWord = false;
-        if (isLetter(c) || isNumber(c) || c === '-') {
-          word += c;
-        } else {
-          newWord = true;
-        }
-
-        if (newWord || (i + 1 === sentence.length)) {
-          if (containsNumber(word) || containsAnyLetter(word)) {
-            if (word in words) {
-              words[word] += 1;
-            } else {
-              words[word] = 1;
-            }
-            totalWords += 1;
-          }
-          word = "";
-        }
-
+    stringArray = stringArray.map(function (current, index, stringArray) {
+      if (current.toLowerCase() === current) {
+        return current.toUpperCase(); // If a character is lowercase, switch to uppercase
+      } else {
+        return current.toLowerCase(); // Else, switch to lowercase
       }
     });
-    setTotalWords(totalWords);
-
-    setUniqueWords(Object.keys(words).length);
-
-    setReadingTime(Math.ceil(totalWords / 210));
-
-    var items = Object.keys(words).map(function (key) {
-      return [key, words[key]];
-    });
-    items.sort((first, second) => {
-      return second[1] - first[1];
-    });
-    let maxKeywords = items.length > 10 ? 10 : items.length;
-    let filteredKeywordDensity = items.slice(0, maxKeywords);
-    setKeywordDensityTableBody(
-      <tbody>
-        {
-          filteredKeywordDensity.map(([word, amount]) => (
-            <tr key={Math.floor(Math.random() * 10000)}>
-              <td className="text-left">{word}</td>
-              <td className="text-right">
-                <Badge color="danger">{amount} (%{(amount * 100 / totalWords).toFixed(2)})
-                </Badge>
-              </td>
-            </tr>
-          ))
-        }
-      </tbody>
-    );
+    return stringArray.join(''); // Join array into string again
   }
 
   return (
     <>
       <div className="content">
         <Row>
-          <Col lg="3" sm="4">
-            <Card className="card-stats">
+          <Col xs="12">
+            <Card>
+              <CardHeader>
+                <h5 className="card-category">Text Case</h5>
+                <CardTitle tag="h2">Converter</CardTitle>
+              </CardHeader>
               <CardBody>
+                <Form action="#">
+                  <label>Simply enter your text and then click the desired button below.</label>
+                  <FormGroup>
+                    <Input
+                      type="textarea"
+                      className="resizable"
+                      placeholder="Type in or copy and paste your text here"
+                      value={textArea}
+                      onChange={e => setTextArea(e.target.value)}
+                    />
+                  </FormGroup>
+                </Form>
+              </CardBody>
+              <CardFooter>
                 <Row>
                   <Col xs="12">
-                    <div className="numbers">
-                      <p className="card-category">Characters</p>
-                      <CardTitle tag="h3">{totalCharacters}</CardTitle>
-                    </div>
+                    <Button
+                      className="btn-fill float-right"
+                      type="submit"
+                      onClick={() => setTextArea(textArea.randomCase())}
+                    >
+                      RaNDom caSE
+                    </Button>
+                    <Button
+                      className="btn-fill float-right"
+                      type="submit"
+                      onClick={() => setTextArea(textArea.toCamelCase())}
+                    >
+                      camelCase
+                    </Button>
+                    <Button
+                      className="btn-fill float-right"
+                      type="submit"
+                      onClick={() => setTextArea(textArea.toTitleCase())}
+                    >
+                      Title Case
+                    </Button>
+                    <Button
+                      className="btn-fill float-right"
+                      type="submit"
+                      onClick={() => setTextArea(textArea.toggleCase())}
+                    >
+                      tOGGLE cASE
+                    </Button>
+                    <Button
+                      className="btn-fill float-right"
+                      type="submit"
+                      onClick={() => setTextArea(textArea.toUpperCase())}
+                    >
+                      UPPER CASE
+                    </Button>
+                    <Button
+                      className="btn-fill float-right"
+                      type="submit"
+                      onClick={() => setTextArea(textArea.toLowerCase())}
+                    >
+                      lower case
+                    </Button>
                   </Col>
                 </Row>
-              </CardBody>
-            </Card>
-          </Col>
-          <Col lg="3" sm="4">
-            <Card className="card-stats">
-              <CardBody>
-                <Row>
-                  <Col xs="12">
-                    <div className="numbers">
-                      <p className="card-category">Characters without spaces</p>
-                      <CardTitle tag="h3">{totalCharactersWithoutSpaces}</CardTitle>
-                    </div>
-                  </Col>
-                </Row>
-              </CardBody>
-            </Card>
-          </Col>
-          <Col lg="3" sm="4">
-            <Card className="card-stats">
-              <CardBody>
-                <Row>
-                  <Col xs="12">
-                    <div className="numbers">
-                      <p className="card-category">Words</p>
-                      <CardTitle tag="h3">{totalWords}</CardTitle>
-                    </div>
-                  </Col>
-                </Row>
-              </CardBody>
-            </Card>
-          </Col>
-          <Col lg="3" sm="4">
-            <Card className="card-stats">
-              <CardBody>
-                <Row>
-                  <Col xs="12">
-                    <div className="numbers">
-                      <p className="card-category">Sentences</p>
-                      <CardTitle tag="h3">{totalSentences}</CardTitle>
-                    </div>
-                  </Col>
-                </Row>
-              </CardBody>
+              </CardFooter>
             </Card>
           </Col>
         </Row>
-        <Row>
-          <Col md="8">
-            <Card className="fill-parent card-stats">
-              <CardBody>
-                <Input
-                  type="textarea"
-                  className="resizable"
-                  placeholder="Type in or copy and paste your text here"
-                  value={text}
-                  onChange={handleTextChange}
-                />
-              </CardBody>
-            </Card>
-          </Col>
-          <Col md="4">
-            <Row>
-              <Card className="card-stats">
-                <CardBody>
-                  <Table responsive>
-                    <thead className="text-primary">
-                      <tr>
-                        <th className="text-left">Text Analisys</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td className="text-left">Paragraphs</td>
-                        <td className="text-right">
-                          <Badge color="danger">{totalParagraphs}
-                          </Badge>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="text-left">Unique Words</td>
-                        <td className="text-right">
-                          <Badge color="danger">{uniqueWords}
-                          </Badge>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="text-left">Reading Time</td>
-                        <td className="text-right">
-                          <Badge color="danger">{readingTime} min
-                          </Badge>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </Table>
-                </CardBody>
-              </Card>
-            </Row>
-            <Row>
-              <Card className="card-stats">
-                <CardBody>
-                  <Table responsive>
-                    <thead className="text-primary">
-                      <tr>
-                        <th className="text-left">Keyword Density</th>
-                      </tr>
-                    </thead>
-                    {keywordDensityTableBody}
-                  </Table>
-                </CardBody>
-              </Card>
-            </Row>
-          </Col>
-        </Row>
-        <h3 className="title mt-5 text-center">Online Character and Words Counter Tool</h3>
+        <h3 className="title mt-5 text-center">Text Case Converter</h3>
         <CardBody>
           <Row>
             <Col sx="4">
-              <h3 className="mt-2">What is a sentence?</h3>
+              <h3 className="mt-2">Convert Text to Upper Case</h3>
               <p>
-                A sentence is a group of words which, when they are written down, begin with a capital letter and end with a full stop, question mark, or exclamation mark. Most sentences contain a subject and a verb.
+                The uppercase converter will change any text into capital letters. It will keep all existing capital letters and convert all lowercase letters to capitals.
+                <br />
+                <br />
+                Using all capital letters for your sentence can help it stand out to readers. This converter is a quick and easy way to change headers, titles, and large amounts of text into capital letters.
+                <br />
+                <br />
+                <p className="blockquote">
+                  HERE IS AN EXAMPLE OF UPPERCASE TEXT.
+                </p>
               </p>
             </Col>
             <Col sx="4">
-              <h3 className="mt-2">What is a paragraph?</h3>
+              <h3 className="mt-2">Convert Text to Lower Case</h3>
               <p>
-                A good example of a paragraph contains a topic sentence, details and a conclusion. 'There are many different kinds of animals that live in China. Tigers and leopards are animals that live in China's forests in the north. In the jungles, monkeys swing in the trees and elephants walk through the brush.
+                The lowercase converter will change all of your text into lowercase letters. This means it will change all capital letters contained within your text (including names, places, titles, and the first word of a new sentence) to lowercase letters.
+                <br />
+                <br />
+                <p className="blockquote">
+                  here is an example of lowercase text.
+                </p>
               </p>
             </Col>
-            <Col xs="12">
-              <h3 className="mt-5">How to extimate the reading time?</h3>
-              <h5 className="">Research varies, but generally, the average adult reads 200-250 words in one minute. You can use this information to calculate the estimated time to read.</h5>
+            <Col sx="4">
+              <h3 className="mt-2">Toggle Case</h3>
+              <p>
+                The toggle case converter will change your lowercase letters to uppercase, and uppercase letters to lowercase.
+                <br />
+                <br />
+                <p className="blockquote">
+                  Example: ToGGLE CasE {"->"} tOggle cASe
+                </p>
+              </p>
             </Col>
-
+          </Row>
+          <Row>
+            <Col sx="4">
+              <h3 className="mt-2">Convert Text to Title Case</h3>
+              <p>
+                Also known as Proper Case.
+                The capital case converter will capitalize the first letter of each word. This is great for students, professionals, or bloggers who are writing titles when writing for the web.
+                <br />
+                <br />
+                <p className="blockquote">
+                  Here Is An Example Of Proper Case.
+                </p>
+              </p>
+            </Col>
+            <Col sx="4">
+              <h3 className="mt-2">Convert Text to Camel Case</h3>
+              <p>
+                Camel case is the practice of writing phrases without spaces or punctuation. It indicates the separation of words with a single capitalized letter, and the first word starting with either case. Common examples include "iPhone" and "eBay". It is also sometimes used in online usernames such as "johnSmith", and to make multi-word domain names more legible.
+                <br />
+                <br />
+                <p className="blockquote">
+                  hereIsAnExampleOfCamelCase
+                </p>
+              </p>
+            </Col>
+            <Col sx="4">
+              <h3 className="mt-2">Convert Text to Random Case</h3>
+              <p>
+                The random case calculator will change your text so that it randomly includes a mix of upper and lowercase letters. Since the random case converter is randomized, different letters of your text will alternate between being uppercase and lowercase every time you use the tool.
+                <br />
+                <br />
+                <p className="blockquote">
+                  hErE iS aN eXAmpLe oF RAndOm CaSe.
+                </p>
+              </p>
+            </Col>
           </Row>
         </CardBody>
-      </div >
+      </div>
     </>
   );
 };

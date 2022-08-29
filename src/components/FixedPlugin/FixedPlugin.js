@@ -33,6 +33,12 @@ const FixedPlugin = (props) => {
     setDarkMode(!darkMode);
     document.body.classList.toggle("white-content");
   };
+
+  React.useEffect(() => {
+    setDarkMode(!darkMode);
+    document.body.classList.toggle("white-content");
+  }, []);
+
   return (
     <div className="fixed-plugin">
       <div className={classes}>

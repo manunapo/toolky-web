@@ -34,12 +34,11 @@ const Home = () => {
                 <CardTitle tag="h2">Toolky</CardTitle>
               </CardHeader>
               <CardBody>
-                Anim pariatur cliche reprehenderit, enim eiusmod high life
-                accusamus terry richardson ad squid. 3 wolf moon officia
-                aute, non cupidatat skateboard dolor brunch. Food truck
-                quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
-                tempor, sunt aliqua put a bird on it squid single-origin
-                coffee nulla assumenda shoreditch et.
+                <h4>
+                  Toolky is a web page with handy tools.
+                  <br/>
+                  It started with some essential tools, and it will keep growing time to time, your suggestions and comments will be more than welcome :)
+                </h4>
               </CardBody>
               <div
                 aria-multiselectable={true}
