@@ -24,6 +24,10 @@
 
     }
 
+    &.icon-default {
+      @include diagonal-gradient($default, $default-states);
+    }
+
     &.icon-danger {
       @include diagonal-gradient($danger, $danger-states);
     }

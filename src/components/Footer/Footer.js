@@ -31,17 +31,17 @@ const Footer = (props) => {
               Manuel Napoli
             </a>
           </li>{" "}
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <a
               className="nav-link"
               href=""
             >
               YouTube
             </a>
-          </li>{" "}
+          </li>{" "} */}
           <li className="nav-item">
-            <a className="nav-link" href="">
-              Blog
+            <a className="nav-link" href="https://www.linkedin.com/in/napolimanuel/" target="_blank" rel="noopener noreferrer" >
+              LinkedIn
             </a>
           </li>
         </ul>

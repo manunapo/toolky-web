@@ -15,7 +15,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import Password from "views/developer/Password.js";
+import PasswordGenerator from "views/security/PasswordGenerator.js";
 import Base64 from "views/developer/Base64.js";
 import Jwt from "views/developer/Jwt.js";
 import Json from "views/developer/Json.js";
@@ -28,7 +28,7 @@ const routes = [
   {
     path: "/home",
     name: "Home",
-    icon: "tim-icons icon-settings",
+    icon: "tim-icons icon-istanbul",
     component: Home,
     layout: "/tools",
   },
@@ -36,10 +36,12 @@ const routes = [
     collapse: true,
     name: "Developer",
     icon: "tim-icons icon-html5",
-    iconclass: "info-icon text-center icon-primary",
+    iconclass: "info-icon text-center icon-default",
     state: "developerCollapse",
     views: [
       {
+
+        id: "view_1",
         path: "/encodig",
         name: "Base64",
         subname: "Decode & Encode",
@@ -48,6 +50,7 @@ const routes = [
         layout: "/tools",
       },
       {
+        id: "view_2",
         path: "/jwt",
         name: "JWT",
         subname: "Decode",
@@ -56,16 +59,18 @@ const routes = [
         layout: "/tools",
       },
       {
+        id: "view_3",
         path: "/json",
-        name: "JSON",
+        name: "JSON Viewer",
         subname: "Stringify",
         mini: "JS",
         component: Json,
         layout: "/tools",
       },
       {
+        id: "view_4",
         path: "/timestamp",
-        name: "Timestamp",
+        name: "Timestamp Converter",
         subname: "Epoch",
         mini: "TS",
         component: Timestamp,
@@ -77,10 +82,11 @@ const routes = [
     collapse: true,
     name: "Text",
     icon: "tim-icons icon-caps-small",
-    iconclass: "info-icon text-center icon-danger",
+    iconclass: "info-icon text-center icon-default",
     state: "textCollapse",
     views: [
       {
+        id: "view_5",
         path: "/textcounter",
         name: "Characters Calculator",
         subname: "Online",
@@ -89,6 +95,7 @@ const routes = [
         layout: "/tools",
       },
       {
+        id: "view_6",
         path: "/caseconverter",
         name: "Case Converter",
         subname: "Online",
@@ -96,6 +103,24 @@ const routes = [
         component: CaseConverter,
         layout: "/tools",
       }
+    ],
+  },
+  {
+    collapse: true,
+    name: "Security",
+    icon: "tim-icons icon-key-25",
+    iconclass: "info-icon text-center icon-default",
+    state: "passwordCollapse",
+    views: [
+      {
+        id: "view_7",
+        path: "/passgen",
+        name: "Password Generator",
+        subname: "Security",
+        mini: "PG",
+        component: PasswordGenerator,
+        layout: "/tools",
+      },
     ],
   },
   /* {
@@ -209,23 +234,6 @@ const routes = [
       },
     ],
   }, */
-  {
-    collapse: true,
-    name: "Password",
-    icon: "tim-icons icon-key-25",
-    iconclass: "info-icon text-center icon-warning",
-    state: "passwordCollapse",
-    views: [
-      {
-        path: "/passgen",
-        name: "Generation",
-        subname: "Password",
-        mini: "PG",
-        component: Password,
-        layout: "/tools",
-      },
-    ],
-  },
 ];
 
 export default routes;

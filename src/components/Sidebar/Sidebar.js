@@ -180,7 +180,7 @@ const Sidebar = (props) => {
       logoText = (
         <a
           href={logo.outterLink}
-          className="simple-text logo-normal"
+          className="logo-simple-text logo-text"
           target="_blank"
           onClick={props.closeSidebar}
         >
@@ -202,7 +202,7 @@ const Sidebar = (props) => {
       logoText = (
         <NavLink
           to={logo.innerLink}
-          className="simple-text logo-normal"
+          className="logo-simple-text logo-text"
           onClick={props.closeSidebar}
         >
           {logo.text}
