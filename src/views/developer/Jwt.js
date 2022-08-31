@@ -29,8 +29,8 @@ const Jwt = (props) => {
   };
 
   const [encodedJwtTextArea, setEncodedJwtTextArea] = React.useState(initialJwt);
-  const [decodedHeaderJwtTextArea, setDecodedHeaderJwtTextArea] = React.useState(JSON.stringify(initialHeader,null,4));
-  const [decodedPayloadJwtTextArea, setDecodedPayloadJwtTextArea] = React.useState(JSON.stringify(initialPayload,null,4));
+  const [decodedHeaderJwtTextArea, setDecodedHeaderJwtTextArea] = React.useState(JSON.stringify(initialHeader, null, 4));
+  const [decodedPayloadJwtTextArea, setDecodedPayloadJwtTextArea] = React.useState(JSON.stringify(initialPayload, null, 4));
 
   function thenHook(response) {
     try {
@@ -129,20 +129,24 @@ const Jwt = (props) => {
               <h3 className="mt-5">What is a JWT?</h3>
               <p>
                 JWT is an open, industry-standard (RFC 7519) for representing claims securely between two parties.
-                <br />
-                In its compact form, JSON Web Tokens consist of three parts separated by dots (.), which are:
-                <br />
-                <br />
+              </p>
+              <br />
+              In its compact form, JSON Web Tokens consist of three parts separated by dots (.), which are:
+              <br />
+              <br />
+              <p className="blockquote">
                 Header
                 <br />
                 Payload
                 <br />
                 Signature
-                <br />
-                <br />
+              </p>
+              <p>
                 Therefore, a JWT typically looks like the following.
-                <br />
-                <br />
+              </p>
+              <br />
+              <br />
+              <p className="blockquote">
                 xxxxx.yyyyy.zzzzz
               </p>
             </Col>
@@ -167,8 +171,10 @@ const Jwt = (props) => {
               <h3 className="mt-5">Registered Claim Names</h3>
               <p>
                 The JWT specification defines some registered claim names and defines how they should be used. We support these registered claim names:
-                <br />
-                <br />
+              </p>
+              <br />
+              <br />
+              <p className="blockquote">
                 “exp” (Expiration Time) Claim
                 <br />
                 “nbf” (Not Before Time) Claim

@@ -30,7 +30,7 @@ import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
 
 import routes from "routes.js";
 
-import logo from "assets/img/react-logo.png";
+import logo from "assets/img/toolky-logo.png";
 
 var ps;
 
@@ -100,9 +100,9 @@ const Tools = (props) => {
       if (prop.layout === "/tools") {
         return (
           <Route
+            key={key}
             path={prop.layout + prop.path}
             render={(props) => <prop.component {...props} handleNotification={handleNotification} />}
-            key={key}
           />
         );
       } else {

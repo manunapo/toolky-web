@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700&display=swap');
 // Global settings
 
 $enable-caret:              true !default;
@@ -200,6 +200,7 @@ $brand-colors: map-merge((
 
 
 /*     brand Colors              */
+$brand-default:              $default !default;
 $brand-primary:              $primary !default;
 $brand-info:                 $info !default;
 $brand-success:              $success !default;
