@@ -30,7 +30,7 @@ import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
 
 import routes from "routes.js";
 
-import logo from "assets/img/toolky-logo.png";
+import logo from "assets/img/toolkys-logo.png";
 
 var ps;
 
@@ -181,8 +181,8 @@ const Tools = (props) => {
         routes={routes}
         activeColor={activeColor}
         logo={{
-          outterLink: "https://www.toolky.com/",
-          text: "Toolky",
+          outterLink: "https://www.toolkys.com/",
+          text: "Toolkys",
           imgSrc: logo,
         }}
         closeSidebar={closeSidebar}

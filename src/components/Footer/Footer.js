@@ -26,11 +26,11 @@ const Footer = (props) => {
     <footer className={"footer" + (props.default ? " footer-default" : "")}>
       <Container fluid={props.fluid ? true : false}>
         <ul className="nav">
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <a className="nav-link" href="">
-              Manuel Napoli
+
             </a>
-          </li>{" "}
+          </li>{" "} */}
           {/* <li className="nav-item">
             <a
               className="nav-link"
@@ -46,7 +46,7 @@ const Footer = (props) => {
           </li>
         </ul>
         <div className="copyright">
-          © {new Date().getFullYear()} hoping you find it usefull {" "}
+          © {new Date().getFullYear()} hoping you find it useful {" "}
           <i className="tim-icons icon-heart-2" />
         </div>
       </Container>

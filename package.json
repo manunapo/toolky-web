@@ -1,8 +1,8 @@
 {
-  "name": "toolky-web",
+  "name": "toolkys-web",
   "version": "1.1.0",
   "private": true,
-  "homepage": "https://toolky.com/tools/home",
+  "homepage": "https://toolkys.com/tools/home",
   "dependencies": {
     "axios": "^0.27.2",
     "bootstrap": "4.5.3",
@@ -46,8 +46,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
-    "compile-scss": "sass src/assets/scss/toolky-web.scss src/assets/css/toolky-web.scss.css",
-    "minify-scss": "sass src/assets/scss/toolky-web.scss src/assets/css/toolky-web.scss --style compressed"
+    "compile-scss": "sass src/assets/scss/toolkys-web.scss src/assets/css/toolkys-web.scss.css",
+    "minify-scss": "sass src/assets/scss/toolkys-web.scss src/assets/css/toolkys-web.scss --style compressed"
   },
   "eslintConfig": {
     "extends": "react-app"
