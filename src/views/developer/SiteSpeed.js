@@ -30,7 +30,7 @@ const SiteSpeed = () => {
                 <Row>
                   <Col className="text-left">
                     <h5 className="card-category">What can I find in?</h5>
-                    <CardTitle tag="h2">Toolky</CardTitle>
+                    <CardTitle tag="h2">Toolkys</CardTitle>
                   </Col>
                 </Row>
               </CardHeader>

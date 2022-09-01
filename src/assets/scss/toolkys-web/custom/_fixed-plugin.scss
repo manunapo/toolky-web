@@ -6,7 +6,7 @@
     z-index: 1031;
     border-radius: 8px 0 0 8px;
     text-align: center;
-    top: 130px;
+    bottom: 80px;
 
     li > a,
     .badge{
@@ -325,7 +325,7 @@
 
 @include media-breakpoint-down(xs){
   .fixed-plugin {
-    top: 100px;
+    bottom: 80px;
   }
 
   .fixed-plugin .dropdown-menu {

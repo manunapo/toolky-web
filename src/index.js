@@ -24,7 +24,7 @@ import ToolsLayout from "layouts/Tools/Tools.js";
 
 import "assets/css/nucleo-icons.css";
 import "react-notification-alert/dist/animate.css";
-import "assets/scss/toolky-web.scss?v=1.2.0";
+import "assets/scss/toolkys-web.scss?v=1.2.0";
 
 
 ReactDOM.render(

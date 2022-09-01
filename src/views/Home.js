@@ -31,14 +31,12 @@ const Home = () => {
             <Card>
               <CardHeader>
                 <h5 className="card-category">What is?</h5>
-                <CardTitle tag="h2">Toolky</CardTitle>
               </CardHeader>
               <CardBody>
-                <h4>
+                <h4 className="mb-0">
                   Toolky is a web page with handy web tools.
                   <br />
-                  <br />
-                  At the moment, we started with some essential tools, but it will keep growing. Your suggestions and comments will be more than welcome :)
+                  At the moment, we started with some essential tools, but it will keep growing. Your suggestions and comments will be more than welcome &#128525;
                 </h4>
               </CardBody>
               <div
@@ -60,7 +58,7 @@ const Home = () => {
                         setopenedCollapseOne(!openedCollapseOne);
                       }}
                     >
-                      Wanna more tools? Found a bug? Any kind of feedback? Let me know! {" "}
+                      &#128721; Wanna more tools? Found a bug? Any kind of feedback? Let me know! {" "}
                       <i className="tim-icons icon-minimal-down" />
                     </a>
                   </CardHeader>
@@ -109,7 +107,7 @@ const Home = () => {
             routes.map((prop, key) => {
               if (prop.path !== "/home") {
                 return (
-                  <Col key={key} xs="12">
+                  <Col key={key} lg="4" md="6" sm="12">
                     <Card className="card-stats">
                       <CardHeader>
                         <Row>
@@ -120,10 +118,11 @@ const Home = () => {
                         </Row>
                       </CardHeader>
                       <CardBody>
-                        <Row>
-                          {prop.views.map((prop2, key2) => {
-                            return (
-                              <Col key={key2} lg="3" md="4">
+
+                        {prop.views.map((prop2, key2) => {
+                          return (
+                            <Row key={key2}>
+                              <Col xs="12">
                                 <Card className="card-stats card-shadow">
                                   <CardBody>
                                     <Row>
@@ -143,9 +142,10 @@ const Home = () => {
                                   </CardBody>
                                 </Card>
                               </Col>
-                            );
-                          })}
-                        </Row>
+                            </Row>
+                          );
+                        })}
+
                       </CardBody>
                     </Card>
                   </Col>

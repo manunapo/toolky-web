@@ -1,3 +1,4 @@
+npm run install:clean
 
 npm install axios --save-prod
 npm install --save --legacy-peer-deps
@@ -19,3 +20,5 @@ Review amount of action/notifications JWT decoder
 Review font size
 
 move backend functions to frontend
+
+Comming soon page.
