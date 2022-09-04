@@ -1,4 +1,5 @@
 import React from "react";
+import { Buffer } from "buffer";
 
 // reactstrap components
 import {
@@ -8,13 +9,9 @@ import {
   CardTitle,
   Row,
   Col,
-  FormGroup,
-  Form,
   Input,
   CardGroup,
 } from "reactstrap";
-
-import { callAPI } from "calls/AxiosWrapper.js";
 
 const Jwt = (props) => {
   const initialJwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
@@ -29,42 +26,49 @@ const Jwt = (props) => {
   };
 
   const [encodedJwtTextArea, setEncodedJwtTextArea] = React.useState(initialJwt);
+  const [styleInputError, setStyleInputError] = React.useState('no-error');
   const [decodedHeaderJwtTextArea, setDecodedHeaderJwtTextArea] = React.useState(JSON.stringify(initialHeader, null, 4));
   const [decodedPayloadJwtTextArea, setDecodedPayloadJwtTextArea] = React.useState(JSON.stringify(initialPayload, null, 4));
 
-  function thenHook(response) {
-    try {
-      setDecodedHeaderJwtTextArea(JSON.stringify(JSON.parse(response.data.header), null, 4))
-    } catch (e) {
-      setDecodedHeaderJwtTextArea(response.data.header)
-      props.handleNotification("JWT Header may be incorrect", "warning");
-    }
-    try {
-      setDecodedPayloadJwtTextArea(JSON.stringify(JSON.parse(response.data.payload), null, 4))
-    } catch (e) {
-      setDecodedPayloadJwtTextArea(response.data.payload)
-      props.handleNotification("JWT Payload may be incorrect", "warning");
-    }
-    if (response.data.error === "jwt" || response.data.error === "header") {
-      props.handleNotification(response.data.msg, "danger");
-    } else if (response.data.error === "payload") {
-      props.handleNotification(response.data.msg, "warning");
-    } else {
-      props.handleNotification(response.data.msg, "success");
-    }
-  }
-
-  function errorHook(error) {
-    props.handleNotification("Check your JWT and try again!");
-  }
-
   function handleJwtDecoding(event) {
-    if (event.target.value !== "") {
+    const dataToDec = event.target.value;
+    setEncodedJwtTextArea(dataToDec);
+
+    let encHeader, encPayload, encSignature = "";
+
+    if (dataToDec !== "") {
       setEncodedJwtTextArea();
-      setDecodedHeaderJwtTextArea("")
-      setDecodedPayloadJwtTextArea("")
-      const data = { value: event.target.value }
-      callAPI("/jwt/dec", "POST", data, thenHook, errorHook)
+      setDecodedHeaderJwtTextArea("");
+      setDecodedPayloadJwtTextArea("");
+
+      let parts = dataToDec.split(".");
+      if (parts.length < 3) {
+        setDecodedHeaderJwtTextArea(JSON.stringify(JSON.parse('{}'), null, 4));
+        setDecodedPayloadJwtTextArea(JSON.stringify(JSON.parse('{}'), null, 4));
+        setStyleInputError('error');
+      } else {
+        encHeader = parts[0];
+        encPayload = parts.slice(1, -1).join('');
+        encSignature = parts[parts.length - 1];
+        try {
+          let decodedHeader = Buffer.from(encHeader, 'base64').toString('utf-8');
+          setDecodedHeaderJwtTextArea(JSON.stringify(JSON.parse(decodedHeader), null, 4));
+        } catch (err) {
+          setDecodedHeaderJwtTextArea(JSON.stringify(JSON.parse('{}'), null, 4));
+        }
+        try {
+          let decodedPayload = Buffer.from(encPayload, 'base64').toString('utf-8');
+          setDecodedPayloadJwtTextArea(JSON.stringify(JSON.parse(decodedPayload), null, 4));
+        } catch (err) {
+          setDecodedPayloadJwtTextArea(JSON.stringify(JSON.parse('{}'), null, 4));
+        }
+        setStyleInputError('no-error');
+      }
+
+    } else {
+      setDecodedHeaderJwtTextArea(JSON.stringify(JSON.parse('{}'), null, 4));
+      setDecodedPayloadJwtTextArea(JSON.stringify(JSON.parse('{}'), null, 4));
+      setStyleInputError('error');
     }
   }
 
@@ -76,47 +80,33 @@ const Jwt = (props) => {
             <CardGroup>
               <Card>
                 <CardHeader>
-                  <h5 className="card-category">JWT to</h5>
-                  <CardTitle tag="h2">Decode</CardTitle>
+                  <h5 className="card-category">JWT</h5>
+                  <CardTitle tag="h2">Encoded</CardTitle>
                 </CardHeader>
                 <CardBody>
-                  <Form action="#">
-                    <label>Simply paste the JWT.</label>
-                    <FormGroup>
-                      <Input
-                        type="textarea"
-                        className="resizable"
-                        value={encodedJwtTextArea}
-                        onChange={handleJwtDecoding}
-                      />
-                    </FormGroup>
-                  </Form>
+                  <label>Simply paste the JWT.</label>
+                  <Input
+                    type="textarea"
+                    className={"resizable pl-2 " + styleInputError}
+                    value={encodedJwtTextArea}
+                    onChange={handleJwtDecoding}
+                  />
                 </CardBody>
               </Card>
               <Card>
                 <CardHeader>
-                  <h5 className="card-category">Decoded</h5>
-                  <CardTitle tag="h2">JWT</CardTitle>
+                  <h5 className="card-category">JWT</h5>
+                  <CardTitle tag="h2">Decoded</CardTitle>
                 </CardHeader>
                 <CardBody>
-                  <Form action="#">
-                    <label>Header:</label>
-                    <FormGroup>
-                      <Input
-                        type="textarea"
-                        className="resizable"
-                        value={decodedHeaderJwtTextArea}
-                        onChange={() => function doNothing() { }} // To avoid dom warning, readOnly would change the style.
-                      />
-                      <label className="mt-4">Payload:</label>
-                      <Input
-                        type="textarea"
-                        className="resizable"
-                        value={decodedPayloadJwtTextArea}
-                        onChange={() => function doNothing() { }} // To avoid dom warning, readOnly would change the style.
-                      />
-                    </FormGroup>
-                  </Form>
+                  <label>Header:</label>
+                  <pre className="pl-2 pt-2">
+                    {decodedHeaderJwtTextArea}
+                  </pre>
+                  <label className="mt-4">Payload:</label>
+                  <pre className="pl-2 pt-2">
+                    {decodedPayloadJwtTextArea}
+                  </pre>
                 </CardBody>
               </Card>
             </CardGroup>

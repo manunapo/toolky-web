@@ -34,59 +34,12 @@ const routes = [
   },
   {
     collapse: true,
-    name: "Developer",
-    icon: "tim-icons icon-html5",
-    iconclass: "info-icon text-center icon-default",
-    state: "developerCollapse",
-    views: [
-      {
-
-        id: "view_1",
-        path: "/encodig",
-        name: "Base64",
-        subname: "Decode & Encode",
-        mini: "B64",
-        component: Base64,
-        layout: "/tools",
-      },
-      {
-        id: "view_2",
-        path: "/jwt",
-        name: "JWT",
-        subname: "Decode",
-        mini: "JW",
-        component: Jwt,
-        layout: "/tools",
-      },
-      {
-        id: "view_3",
-        path: "/json",
-        name: "JSON Viewer",
-        subname: "Stringify",
-        mini: "JS",
-        component: Json,
-        layout: "/tools",
-      },
-      {
-        id: "view_4",
-        path: "/timestamp",
-        name: "Timestamp Converter",
-        subname: "Epoch",
-        mini: "TS",
-        component: Timestamp,
-        layout: "/tools",
-      },
-    ],
-  },
-  {
-    collapse: true,
     name: "Text",
     icon: "tim-icons icon-caps-small",
     iconclass: "info-icon text-center icon-default",
     state: "textCollapse",
     views: [
       {
-        id: "view_5",
         path: "/textcounter",
         name: "Characters Calculator",
         subname: "Analysis",
@@ -95,7 +48,6 @@ const routes = [
         layout: "/tools",
       },
       {
-        id: "view_6",
         path: "/caseconverter",
         name: "Case Converter",
         subname: "Analysis",
@@ -113,7 +65,6 @@ const routes = [
     state: "passwordCollapse",
     views: [
       {
-        id: "view_7",
         path: "/passgen",
         name: "Password Generator",
         subname: "Customizable",
@@ -123,6 +74,48 @@ const routes = [
       },
     ],
   },
+  {
+    collapse: true,
+    name: "Developer",
+    icon: "tim-icons icon-html5",
+    iconclass: "info-icon text-center icon-default",
+    state: "developerCollapse",
+    views: [
+      {
+        path: "/encodig",
+        name: "Base64",
+        subname: "Decode & Encode",
+        mini: "B64",
+        component: Base64,
+        layout: "/tools",
+      },
+      {
+        path: "/jwt",
+        name: "JWT",
+        subname: "Decode",
+        mini: "JW",
+        component: Jwt,
+        layout: "/tools",
+      },
+      {
+        path: "/json",
+        name: "JSON Viewer",
+        subname: "Stringify",
+        mini: "JS",
+        component: Json,
+        layout: "/tools",
+      },
+      {
+        path: "/timestamp",
+        name: "Timestamp Converter",
+        subname: "Epoch",
+        mini: "TS",
+        component: Timestamp,
+        layout: "/tools",
+      },
+    ],
+  },
+
   /* {
     collapse: true,
     name: "SEO",

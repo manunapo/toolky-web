@@ -1,16 +1,16 @@
 {
-  "name": "toolkys-web",
+  "name": "toolkyweb",
   "version": "1.1.0",
   "private": true,
-  "homepage": "https://toolkys.com/tools/home",
+  "homepage": "https://ttoolkyom/tools/home",
   "dependencies": {
     "axios": "^0.27.2",
     "bootstrap": "4.5.3",
+    "buffer": "^6.0.3",
     "chart.js": "2.9.4",
     "classnames": "2.2.6",
     "match-sorter": "6.0.2",
-    "moment": "2.29.1",
-    "nouislider": "14.6.3",
+    "nouislider-react": "^3.4.1",
     "perfect-scrollbar": "1.4.0",
     "prop-types": "15.7.2",
     "react": "17.0.1",
@@ -46,8 +46,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
-    "compile-scss": "sass src/assets/scss/toolkys-web.scss src/assets/css/toolkys-web.scss.css",
-    "minify-scss": "sass src/assets/scss/toolkys-web.scss src/assets/css/toolkys-web.scss --style compressed"
+    "compile-scss": "sass src/assets/scss/totoolkyb.scss src/assets/css/tootoolky.scss.css",
+    "minify-scss": "sass src/assets/scss/tooltoolkyscss src/assets/css/toolktoolkycss --style compressed"
   },
   "eslintConfig": {
     "extends": "react-app"

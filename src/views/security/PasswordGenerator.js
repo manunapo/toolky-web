@@ -1,27 +1,5 @@
-/*!
-
-=========================================================
-* Black Dashboard React - v1.2.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/black-dashboard-react
-* Copyright 2020 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/black-dashboard-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
-// react plugin used to create datetimepicker
-import ReactDatetime from "react-datetime";
-// react plugin used to create DropdownMenu for selecting items
-import Select from "react-select";
-// plugin that creates slider
-import Slider from "nouislider";
+import Nouislider from "nouislider-react";
 
 // reactstrap components
 import {
@@ -29,182 +7,207 @@ import {
   CardHeader,
   CardBody,
   CardTitle,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  UncontrolledDropdown,
-  FormGroup,
-  Progress,
-  CustomInput,
   Row,
   Col,
+  Table,
+  Badge,
+  Input,
+  Label,
+  FormGroup,
+  CustomInput,
 } from "reactstrap";
 
-// core components
-import ImageUpload from "components/CustomUpload/ImageUpload.js";
-import TagsInput from "components/TagsInput/TagsInput.js";
-
 const PasswordGenerator = () => {
-  const [singleSelect, setsingleSelect] = React.useState(null);
-  const [multipleSelect, setmultipleSelect] = React.useState(null);
-  const [tagsinput, settagsinput] = React.useState([
-    "Amsterdam",
-    "Washington",
-    "Sydney",
-    "Beijing",
-  ]);
-  const slider1Ref = React.useRef(null);
-  const slider2Ref = React.useRef(null);
+  const [isPasswordType, togglePasswordType] = React.useState(true);
+  const [includeUpperCases, toggleIncludeUpperCases] = React.useState(true);
+  const [includeLowerCases, toggleIncludeLowerCases] = React.useState(true);
+  const [includeNumbers, toggleIncludeNumbers] = React.useState(true);
+  const [includeSpecialChars, toggleIncludeSpecialChars] = React.useState(true);
+  const [secretLength, setSecretLength] = React.useState(8);
+  const [generatedSecret, setGeneratedSecret] = React.useState();
+
+
+
   React.useEffect(() => {
-    var slider1 = slider1Ref.current;
-    var slider2 = slider2Ref.current;
-    if (slider1.className === "slider") {
-      Slider.create(slider1, {
-        start: [40],
-        connect: [true, false],
-        step: 1,
-        range: { min: 0, max: 100 },
-      });
+
+    if (isPasswordType) {
+
+
+    } else {
+      // is passphrase
     }
-    if (slider2.className === "slider slider-primary mb-3") {
-      Slider.create(slider2, {
-        start: [20, 60],
-        connect: [false, true, false],
-        step: 1,
-        range: { min: 0, max: 100 },
-      });
-    }
-  }, []);
-  const handleTagsinput = (tagsinput) => {
-    settagsinput(tagsinput);
-  };
+
+    console.log(secretLength);
+    console.log(Words[Math.floor(Math.random() * 58001)]);
+  }, [isPasswordType, includeUpperCases, includeLowerCases, includeNumbers, includeSpecialChars, secretLength]);
+
   return (
     <>
       <div className="content">
         <Row>
           <Col md="12">
             <Card>
+              <CardHeader>
+                <h5 className="card-category">Secrets</h5>
+                <CardTitle tag="h2">Generator</CardTitle>
+              </CardHeader>
               <CardBody>
                 <Row>
-                  <Col className="mb-4" md="6">
-                    <CardTitle tag="h4">Tags</CardTitle>
-                    <TagsInput
-                      onChange={handleTagsinput}
-                      tagProps={{ className: "react-tagsinput-tag danger" }}
-                      value={tagsinput}
-                    />
-                  </Col>
                   <Col md="6">
-                    <CardTitle tag="h4">Dropdown &amp; Dropup</CardTitle>
-                    <Row>
-                      <Col lg="4" md="6" sm="3">
-                        <UncontrolledDropdown>
-                          <DropdownToggle
-                            aria-expanded={false}
-                            aria-haspopup={true}
-                            caret
-                            className="btn-block"
-                            color="primary"
-                            data-toggle="dropdown"
-                            id="dropdownMenuButton"
-                            type="button"
-                          >
-                            Dropdown
-                          </DropdownToggle>
-                          <DropdownMenu aria-labelledby="dropdownMenuButton">
-                            <DropdownItem header>Dropdown header</DropdownItem>
-                            <DropdownItem
-                              href="#pablo"
-                              onClick={(e) => e.preventDefault()}
-                            >
-                              Action
-                            </DropdownItem>
-                            <DropdownItem
-                              href="#pablo"
-                              onClick={(e) => e.preventDefault()}
-                            >
-                              Another action
-                            </DropdownItem>
-                            <DropdownItem
-                              href="#pablo"
-                              onClick={(e) => e.preventDefault()}
-                            >
-                              Something else here
-                            </DropdownItem>
-                          </DropdownMenu>
-                        </UncontrolledDropdown>
-                      </Col>
-                      <Col lg="4" md="6" sm="3">
-                        <UncontrolledDropdown direction="up">
-                          <DropdownToggle
-                            caret
-                            className="btn-block"
-                            color="primary"
-                            data-toggle="dropdown"
-                            type="button"
-                          >
-                            Dropup
-                          </DropdownToggle>
-                          <DropdownMenu>
-                            <DropdownItem header>Dropdown header</DropdownItem>
-                            <DropdownItem
-                              href="#pablo"
-                              onClick={(e) => e.preventDefault()}
-                            >
-                              Action
-                            </DropdownItem>
-                            <DropdownItem
-                              href="#pablo"
-                              onClick={(e) => e.preventDefault()}
-                            >
-                              Another action
-                            </DropdownItem>
-                            <DropdownItem
-                              href="#pablo"
-                              onClick={(e) => e.preventDefault()}
-                            >
-                              Something else here
-                            </DropdownItem>
-                          </DropdownMenu>
-                        </UncontrolledDropdown>
-                      </Col>
-                    </Row>
+                    <Table responsive>
+                      <thead className="text-primary">
+                        <tr>
+                          <th className="text-left">Secret Type</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td className="text-left">
+                            <span className="mr-2">Password</span>
+                          </td>
+                          <td className="text-center">
+                            <CustomInput
+                              type="switch"
+                              id="switch-5"
+                              className="mt-n4"
+                              onChange={() => { togglePasswordType(!isPasswordType) }}
+                            />
+                          </td>
+                          <td className="text-right">
+                            <span className="ml-n2">Passphrase</span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </Table>
                   </Col>
                 </Row>
                 <Row>
                   <Col className="mb-4" md="6">
-                    <CardTitle tag="h4">Progress Bars</CardTitle>
-                    <div className="progress-container">
-                      <span className="progress-badge">Default</span>
-                      <Progress max="100" value="25">
-                        <span className="progress-value">25%</span>
-                      </Progress>
-                    </div>
-                    <div className="progress-container progress-primary">
-                      <span className="progress-badge">Primary</span>
-                      <Progress max="100" value="60">
-                        <span className="progress-value">60%</span>
-                      </Progress>
-                    </div>
+                    <Table responsive>
+                      <thead className="text-primary">
+                        <tr>
+                          <th className="text-left">Options</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td className="text-left">A-Z</td>
+                          <td className="text-right">
+                            <FormGroup check>
+                              <Label check>
+                                <Input
+                                  type="checkbox"
+                                  checked={includeUpperCases}
+                                  onChange={() => { toggleIncludeUpperCases(!includeUpperCases) }}
+                                />
+                                <span className="form-check-sign" />
+                              </Label>
+                            </FormGroup>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="text-left">a-z</td>
+                          <td className="text-right">
+                            <FormGroup check>
+                              <Label check>
+                                <Input
+                                  type="checkbox"
+                                  checked={includeLowerCases}
+                                  onChange={() => { toggleIncludeLowerCases(!includeLowerCases) }}
+                                />
+                                <span className="form-check-sign" />
+                              </Label>
+                            </FormGroup>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="text-left">0-9</td>
+                          <td className="text-right">
+                            <FormGroup check>
+                              <Label check>
+                                <Input
+                                  type="checkbox"
+                                  checked={includeNumbers}
+                                  onChange={() => { toggleIncludeNumbers(!includeNumbers) }}
+                                />
+                                <span className="form-check-sign" />
+                              </Label>
+                            </FormGroup>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="text-left">{specialChars}</td>
+                          <td className="text-right">
+                            <FormGroup check>
+                              <Label check>
+                                <Input
+                                  type="checkbox"
+                                  checked={includeSpecialChars}
+                                  onChange={() => { toggleIncludeSpecialChars(!includeSpecialChars) }}
+                                />
+                                <span className="form-check-sign" />
+                              </Label>
+                            </FormGroup>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </Table>
                   </Col>
                   <Col md="6">
-                    <CardTitle className="mt-3" tag="h4">
-                      Sliders
-                    </CardTitle>
-                    <div className="slider" ref={slider1Ref} />
-                    <br />
-                    <div
-                      className="slider slider-primary mb-3"
-                      ref={slider2Ref}
-                    />
+                    <Table responsive>
+                      <thead className="text-primary">
+                        <tr>
+                          <th className="text-left">Length</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td className="text-left">
+                            <div className="slider">
+                              <Nouislider
+                                range={{ min: 4, max: 128 }}
+                                start={8}
+                                step={1}
+                                onSlide={(e) => { setSecretLength(Math.floor(e)) }}
+                              />
+                            </div>
+                          </td>
+                          <td className="text-right">
+                            <Badge color="primary">0
+                            </Badge>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </Table>
                   </Col>
                 </Row>
               </CardBody>
             </Card>
-            {/* end card */}
           </Col>
         </Row>
-        <h3 className="title mt-5 text-center">Encoding & Decoding Base64</h3>
+        <Row>
+          <Col md="12">
+            <Card>
+              <CardBody>
+                <Row>
+                  <Col xs="9">
+                    <div className="text-center">
+                      asd
+                      {generatedSecret}
+                    </div>
+                  </Col>
+                  <Col xs="3">
+                    <div className="text-right">
+                      STRONG
+                    </div>
+                  </Col>
+                </Row>
+
+              </CardBody>
+            </Card>
+          </Col>
+        </Row>
+        <h3 className="title mt-5 text-center">Passwords</h3>
         <CardBody>
           <Row>
             <Col sx="6">

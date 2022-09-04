@@ -224,6 +224,10 @@ textarea.resizable {
   resize: vertical !important;
 }
 
+textarea.error {
+  background-color: rgba(255, 57, 57, 0.200) !important;
+}
+
 .has-success,
 .has-danger {
 

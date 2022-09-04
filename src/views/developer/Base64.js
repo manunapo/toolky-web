@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Buffer } from "buffer";
 // reactstrap components
 import {
   Card,
@@ -15,61 +15,25 @@ import {
   Button,
 } from "reactstrap";
 
-import { callAPI } from "calls/AxiosWrapper.js";
-
 const Base64 = (props) => {
   const initialEncData = "clientId:clientSecret"
   const initialDecData = "Y2xpZW50SWQ6Y2xpZW50U2VjcmV0"
-  const [encodeCharset, setEncodeCharset] = React.useState({ value: "1", label: "ascii" });
-  const [decodeCharset, setDecodeCharset] = React.useState({ value: "1", label: "ascii" });
   const [encodeTextArea, setEncodeTextArea] = React.useState(initialEncData);
   const [decodeTextArea, setDecodeTextArea] = React.useState(initialDecData);
 
-  function thenEncHook(response) {
-    setDecodeTextArea(response.data.value);
-    if (response.data.error) {
-      props.handleNotification(response.data.msg, "danger");
-    } else {
-      props.handleNotification(response.data.msg, "success");
-    }
-  }
-  function thenDecHook(response) {
-    setEncodeTextArea(response.data.value);
-    if (response.data.error) {
-      props.handleNotification(response.data.msg, "danger");
-    } else {
-      props.handleNotification(response.data.msg, "success");
-    }
-  }
-
-  function errorHook(error) {
-    props.handleNotification("Check your input and try again!");
-  }
+  // to prompt an alert -> props.handleNotification(response.data.msg, "danger");
 
   function handleEncoding() {
-    if (encodeTextArea !== "") {
-      const data = { value: encodeTextArea, charset: encodeCharset.label, error: false, msg: "" }
-      callAPI("/base64/enc", "POST", data, thenEncHook, errorHook);
-    } else {
-      props.handleNotification("You need to enter some text!");
-    }
+    let buff = Buffer.from(encodeTextArea, 'utf-8');
+    let base64 = buff.toString('base64');
+    setDecodeTextArea(base64);
   }
 
   function handleDecoding() {
-    if (decodeTextArea !== "") {
-      const data = { value: decodeTextArea, charset: decodeCharset.label, error: false, msg: "" }
-      callAPI("/base64/dec", "POST", data, thenDecHook, errorHook);
-    } else {
-      props.handleNotification("You need to enter some text!");
-    }
+    let buff = Buffer.from(decodeTextArea, 'base64');
+    let str = buff.toString('utf-8');
+    setEncodeTextArea(str);
   }
-
-  const handleEncodeTextChange = event => {
-    setEncodeTextArea(event.target.value);
-  };
-  const handleDecodeTextChange = event => {
-    setDecodeTextArea(event.target.value);
-  };
 
   return (
     <>
@@ -89,7 +53,7 @@ const Base64 = (props) => {
                       type="textarea"
                       className="resizable"
                       value={encodeTextArea}
-                      onChange={handleEncodeTextChange}
+                      onChange={(e) => setEncodeTextArea(e.target.value)}
                     />
                   </FormGroup>
                 </Form>
@@ -123,7 +87,7 @@ const Base64 = (props) => {
                       type="textarea"
                       className="resizable"
                       value={decodeTextArea}
-                      onChange={handleDecodeTextChange}
+                      onChange={(e) => setDecodeTextArea(e.target.value)}
                     />
                   </FormGroup>
                 </Form>
