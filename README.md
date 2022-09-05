@@ -16,16 +16,11 @@ Get your visitor's country from their IP http://country.is/
 
 
 TO ADD:
-Limit amout of notifications.
-Change fixed pluging to question mark, plus add feedback form access in there.
 
-Review amount of action/notifications JWT decoder
 Review font size
-
-move backend functions to frontend
 
 Comming soon page.
 
-would you like to receibe the response via mail? :)
+would you like to receive the response via mail? :)
 
 TAB ICON
