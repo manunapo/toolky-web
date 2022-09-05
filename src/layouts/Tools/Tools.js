@@ -15,9 +15,6 @@ import routes from "routes.js";
 
 import logo from "assets/img/toolkys-logo.png";
 
-// Make String.prototype extensions available globally
-import _ from "helpers/CaseFormatter.js";
-
 var ps;
 
 const Tools = (props) => {

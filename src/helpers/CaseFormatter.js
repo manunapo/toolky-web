@@ -1,23 +1,23 @@
-String.prototype.randomCase = function () {
+export const randomCase = function (str) {
     var flip = '';
-    for (var i = 0; i < this.length; i++) {
+    for (var i = 0; i < str.length; i++) {
         if (Math.random() > .5) {
-            flip += this.charAt(i).toUpperCase();
+            flip += str.charAt(i).toUpperCase();
         } else {
-            flip += this.charAt(i).toLowerCase();
+            flip += str.charAt(i).toLowerCase();
         }
     }
     return flip;
 }
 
-String.prototype.toCamelCase = function () {
-    let string = this.toLowerCase().replace(/[^A-Za-z0-9]/g, ' ').split(' ')
-        .reduce((result, word) => result + word.toLowerCase().toTitleCase())
+export const toCamelCase = function (str) {
+    let string = str.toLowerCase().replace(/[^A-Za-z0-9]/g, ' ').split(' ')
+        .reduce((result, word) => result + toTitleCase(word.toLowerCase()))
     return string.charAt(0).toLowerCase() + string.slice(1)
 }
 
-String.prototype.toTitleCase = function () {
-    return this.replace(
+export const toTitleCase = function (str) {
+    return str.replace(
         /\w\S*/g,
         function (txt) {
             return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
@@ -25,8 +25,8 @@ String.prototype.toTitleCase = function () {
     );
 }
 
-String.prototype.toggleCase = function () {
-    var stringArray = this.valueOf().split(''); // Turn string into array
+export const toggleCase = function (str) {
+    var stringArray = str.valueOf().split(''); // Turn string into array
 
     stringArray = stringArray.map(function (current, index, stringArray) {
         if (current.toLowerCase() === current) {

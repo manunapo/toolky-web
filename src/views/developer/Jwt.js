@@ -34,7 +34,8 @@ const Jwt = (props) => {
     const dataToDec = event.target.value;
     setEncodedJwtTextArea(dataToDec);
 
-    let encHeader, encPayload, encSignature = "";
+    /* let encHeader, encPayload, encSignature = ""; */
+    let encHeader, encPayload = "";
 
     if (dataToDec !== "") {
       setEncodedJwtTextArea();
@@ -49,7 +50,7 @@ const Jwt = (props) => {
       } else {
         encHeader = parts[0];
         encPayload = parts.slice(1, -1).join('');
-        encSignature = parts[parts.length - 1];
+        /* encSignature = parts[parts.length - 1]; */
         try {
           let decodedHeader = Buffer.from(encHeader, 'base64').toString('utf-8');
           setDecodedHeaderJwtTextArea(JSON.stringify(JSON.parse(decodedHeader), null, 4));

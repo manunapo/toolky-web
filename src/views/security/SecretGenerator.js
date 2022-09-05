@@ -60,7 +60,6 @@ const SecretGenerator = () => {
       if (!includeLowerCases && !includeUpperCases && !includeNumbers && !includeSpecialChars) setIncludeLowerCases(!includeLowerCases);
       setGeneratedSecret(generatePassword(secretLength, includeLowerCases, includeUpperCases, includeNumbers, includeSpecialChars));
     } else {
-      console.log(setGeneratedSecret(secretLength, capitalizePassphrase, passphraseSeparator));
       setGeneratedSecret(generatePassphrase(secretLength, capitalizePassphrase, passphraseSeparator));
     } handleRefreshSecret();
   }, [
@@ -353,11 +352,13 @@ const SecretGenerator = () => {
                 While passphrases should be something that the user can remember, it is highly discouraged to use a common phrase. An example of a passphrase could be four random words, such as (engineer, works, harris, studying):
                 <br />
                 <br />
-                <p className="blockquote">
-                  “engineerworksharrisstudying”
-                  <br />
-                  “engineer-works-harris-studying”
-                </p>
+              </p>
+              <p className="blockquote">
+                “engineerworksharrisstudying”
+                <br />
+                “engineer-works-harris-studying”
+              </p>
+              <p>
                 While it may seem counterintuitive to use a series of random words for a credential, phrases like these are more memorable and far more secure than a password, which typically seeks security through a mix of numbers, special characters, and upper and lowercase letters.
                 <br />
                 <br />

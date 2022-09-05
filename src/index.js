@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
-import AuthLayout from "layouts/Auth/Auth.js";
 import ToolsLayout from "layouts/Tools/Tools.js";
 
 import "assets/css/nucleo-icons.css";

@@ -1,5 +1,5 @@
-
 import Words from "variables/dictionary.js";
+import { toTitleCase } from "helpers/CaseFormatter.js";
 
 const lowerCases = "abcdefghijklmnopqrstuvwxyz";
 const upperCases = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -27,7 +27,7 @@ export function generatePassphrase(length = 8, capitalized = false, separator = 
     for (let i = 0; i < length; i++) {
         let word = Words[Math.floor(Math.random() * Words.length)];
         if (capitalized)
-            word = word.toTitleCase();
+            word = toTitleCase(word);
 
         passphrase += i === (length - 1) ? word : word + separator;
     }

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { randomCase, toCamelCase, toTitleCase, toggleCase } from "helpers/CaseFormatter.js";
 
 import {
   Card,
@@ -47,28 +48,28 @@ const CaseConverter = (props) => {
                     <Button
                       className="btn-fill float-right"
                       type="submit"
-                      onClick={() => setTextArea(textArea.randomCase())}
+                      onClick={() => setTextArea(randomCase(textArea))}
                     >
                       RaNDom caSE
                     </Button>
                     <Button
                       className="btn-fill float-right"
                       type="submit"
-                      onClick={() => setTextArea(textArea.toCamelCase())}
+                      onClick={() => setTextArea(toCamelCase(textArea))}
                     >
                       camelCase
                     </Button>
                     <Button
                       className="btn-fill float-right"
                       type="submit"
-                      onClick={() => setTextArea(textArea.toTitleCase())}
+                      onClick={() => setTextArea(toTitleCase(textArea))}
                     >
                       Title Case
                     </Button>
                     <Button
                       className="btn-fill float-right"
                       type="submit"
-                      onClick={() => setTextArea(textArea.toggleCase())}
+                      onClick={() => setTextArea(toggleCase(textArea))}
                     >
                       tOGGLE cASE
                     </Button>

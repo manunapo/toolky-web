@@ -1,8 +1,8 @@
 {
-  "name": "toolkysweb",
+  "name": "toolkys-web",
   "version": "1.1.0",
   "private": true,
-  "homepage": "https://toolkys.com/tools/home",
+  "homepage": "https://toolkys.com",
   "dependencies": {
     "axios": "^0.27.2",
     "bootstrap": "4.5.3",
@@ -10,6 +10,7 @@
     "chart.js": "2.9.4",
     "classnames": "2.2.6",
     "match-sorter": "6.0.2",
+    "node-sass": "4.11.0",
     "nouislider-react": "^3.4.1",
     "perfect-scrollbar": "1.4.0",
     "prop-types": "15.7.2",
@@ -29,7 +30,7 @@
     "react-select": "5.4.0",
     "react-table": "7.6.2",
     "reactstrap": "8.7.1",
-    "sass": "1.53.0"
+    "source-map-explorer": "^2.5.2"
   },
   "devDependencies": {
     "gulp": "4.0.2",
@@ -42,13 +43,15 @@
     "typescript": "4.1.2"
   },
   "scripts": {
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "react-scripts start",
     "build": "react-scripts build && gulp licenses",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
-    "compile-scss": "sass src/assets/scss/totoolkyb.scss src/assets/css/tootoolky.scss.css",
-    "minify-scss": "sass src/assets/scss/tooltoolkyscss src/assets/css/toolktoolkycss --style compressed"
+    "compile-scss": "node-sass src/assets/scss/toolkys-web.scss src/assets/css/toolkys-web.css",
+    "minify-sass": "node-sass src/assets/scss/toolkys-web.scss src/assets/css/toolkys-web.min.css --output-style compressed",
+    "map-sass": "node-sass src/assets/scss/toolkys-web.scss src/assets/css/toolkys-web.css --source-map true"
   },
   "eslintConfig": {
     "extends": "react-app"
