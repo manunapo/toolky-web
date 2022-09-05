@@ -322,32 +322,23 @@ const SecretGenerator = () => {
         <CardBody>
           <Row>
             <Col sx="6">
-              <h3 className="mt-2">What is a Password?</h3>
+              <h3 className="mt-2">Passphrase vs Password</h3>
               <p>
-                As we all may know, a Password is a word, phrase, or string of characters intended to differentiate an authorized user or process (for the purpose of permitting access) from an unauthorized user, or put another way a password is used to prove one's identity, or authorize access to a resource.
+                The biggest factor in the consideration of passphrase vs password is simply the amount of time it takes to crack a password.
                 <br />
                 <br />
-                The top 10 most common passwords list you MUST NOT use are:
+                Hackers employ a form of cyberattack called a “brute-force” attack, whereby an automated program repeats password combinations over and over again until the password is cracked.
+                <br />
+                <br />
+                For methods of hacking like these, the length of the password is a greater determinant of its strength than its variety.
+                <br />
+                <br />
+                Now compare this to a passphrase using only lowercase letters but that is 14 characters instead of seven—this would take approximately 51 years for a hacker to crack.
                 <br />
                 <br />
               </p>
-              <p className="blockquote text-center">
-                123456
-                <br />
-                123456789
-                <br />
-                qwerty
-                <br />
-                password
-                <br />
-                12345
-                <br />
-                qwerty123
-                <br />
-                1q2w3e
-                <br />
-                12345678
-                <br />
+              <p className="blockquote">
+                6 mins for a password vs 51 years for a passphrase!
               </p>
             </Col>
             <Col sx="6">
@@ -376,23 +367,32 @@ const SecretGenerator = () => {
           </Row>
           <Row>
             <Col sx="6">
-              <h3 className="mt-2">Passphrase vs Password</h3>
+              <h3 className="mt-2">What is a Password?</h3>
               <p>
-                The biggest factor in the consideration of passphrase vs password is simply the amount of time it takes to crack a password.
+                As we all may know, a Password is a word, phrase, or string of characters intended to differentiate an authorized user or process (for the purpose of permitting access) from an unauthorized user, or put another way a password is used to prove one's identity, or authorize access to a resource.
                 <br />
                 <br />
-                Hackers employ a form of cyberattack called a “brute-force” attack, whereby an automated program repeats password combinations over and over again until the password is cracked.
-                <br />
-                <br />
-                For methods of hacking like these, the length of the password is a greater determinant of its strength than its variety.
-                <br />
-                <br />
-                Now compare this to a passphrase using only lowercase letters but that is 14 characters instead of seven—this would take approximately 51 years for a hacker to crack.
+                The top 10 most common passwords list you MUST NOT use are:
                 <br />
                 <br />
               </p>
-              <p className="blockquote">
-                6 mins for a password vs 51 years for a passphrase!
+              <p className="blockquote text-center">
+                123456
+                <br />
+                123456789
+                <br />
+                qwerty
+                <br />
+                password
+                <br />
+                12345
+                <br />
+                qwerty123
+                <br />
+                1q2w3e
+                <br />
+                12345678
+                <br />
               </p>
             </Col>
           </Row>
