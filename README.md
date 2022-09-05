@@ -6,6 +6,7 @@ npm start
 npm i react-json-view --save
 npm install sass-loader node-sass --save-dev
 npm install nouislider-react --save
+npm install react-password-strength-bar --save
 
 IDEAS:
 Implement welcoming funfact/useless fact ? https://uselessfacts.jsph.pl/

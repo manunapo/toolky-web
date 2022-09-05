@@ -228,6 +228,13 @@ textarea.error {
   background-color: rgba(255, 57, 57, 0.200) !important;
 }
 
+textarea.separator {
+  border-color: transparent !important;
+  max-width: 10px;
+  float: right;
+  padding: 0 15px 0 0 !important;
+}
+
 .has-success,
 .has-danger {
 

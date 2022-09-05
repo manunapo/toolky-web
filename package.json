@@ -1,8 +1,8 @@
 {
-  "name": "toolkyweb",
+  "name": "toolkysweb",
   "version": "1.1.0",
   "private": true,
-  "homepage": "https://ttoolkyom/tools/home",
+  "homepage": "https://toolkys.com/tools/home",
   "dependencies": {
     "axios": "^0.27.2",
     "bootstrap": "4.5.3",
@@ -23,6 +23,7 @@
     "react-json-view": "^1.21.3",
     "react-jvectormap": "0.0.16",
     "react-notification-alert": "0.0.13",
+    "react-password-strength-bar": "^0.4.1",
     "react-router-dom": "5.2.0",
     "react-scripts": "5.0.1",
     "react-select": "5.4.0",
