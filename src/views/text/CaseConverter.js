@@ -44,48 +44,60 @@ const CaseConverter = (props) => {
               </CardBody>
               <CardFooter>
                 <Row>
-                  <Col xs="12">
+                  <Col sm="6" md="4">
                     <Button
-                      className="btn-fill float-right"
+                      className="btn-fill btn-block"
                       type="submit"
-                      onClick={() => setTextArea(randomCase(textArea))}
+                      onClick={() => setTextArea(textArea.toUpperCase())}
                     >
-                      RaNDom caSE
+                      UPPER
                     </Button>
+                  </Col>
+                  <Col sm="6" md="4">
                     <Button
-                      className="btn-fill float-right"
+                      className="btn-fill btn-block"
+                      type="submit"
+                      onClick={() => setTextArea(textArea.toLowerCase())}
+                    >
+                      lower
+                    </Button>
+                  </Col>
+                  <Col sm="6" md="4">
+                    <Button
+                      className="btn-fill btn-block"
                       type="submit"
                       onClick={() => setTextArea(toCamelCase(textArea))}
                     >
                       camelCase
                     </Button>
+                  </Col>
+                  <Col sm="6" md="4">
                     <Button
-                      className="btn-fill float-right"
+                      className="btn-fill btn-block"
                       type="submit"
                       onClick={() => setTextArea(toTitleCase(textArea))}
                     >
-                      Title Case
+                      Title
                     </Button>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col sm="6" md="4">
                     <Button
-                      className="btn-fill float-right"
+                      className="btn-fill btn-block"
                       type="submit"
                       onClick={() => setTextArea(toggleCase(textArea))}
                     >
-                      tOGGLE cASE
+                      tOGGLE
                     </Button>
+                  </Col>
+                  <Col sm="6" md="4">
                     <Button
-                      className="btn-fill float-right"
+                      className="btn-fill btn-block"
                       type="submit"
-                      onClick={() => setTextArea(textArea.toUpperCase())}
+                      onClick={() => setTextArea(randomCase(textArea))}
                     >
-                      UPPER CASE
-                    </Button>
-                    <Button
-                      className="btn-fill float-right"
-                      type="submit"
-                      onClick={() => setTextArea(textArea.toLowerCase())}
-                    >
-                      lower case
+                      RaNDom
                     </Button>
                   </Col>
                 </Row>
@@ -93,7 +105,7 @@ const CaseConverter = (props) => {
             </Card>
           </Col>
         </Row>
-        <h3 className="title mt-5 text-center">Text Case Converter</h3>
+        <h3 className="title mt-5 text-center">Text Case Converter &#128288;</h3>
         <CardBody>
           <Row>
             <Col sx="4">

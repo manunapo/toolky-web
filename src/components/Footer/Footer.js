@@ -46,9 +46,7 @@ const Footer = (props) => {
           </li>
         </ul>
         <div className="copyright">
-          © {new Date().getFullYear()} hoping you find it useful {" "}
-          <i className="tim-icons icon-heart-2" />
-        </div>
+          © {new Date().getFullYear()} hoping you find it useful &#128155;</div>
       </Container>
     </footer>
   );

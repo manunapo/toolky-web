@@ -58,7 +58,7 @@ const Home = () => {
                         setopenedCollapseOne(!openedCollapseOne);
                       }}
                     >
-                      &#128721; Wanna more tools? Found a bug? Any kind of feedback? Let me know! {" "}
+                      &#128680; Wanna more tools? Found a bug? Any kind of feedback? Let me know! {" "}
                       <i className="tim-icons icon-minimal-down" />
                     </a>
                   </CardHeader>

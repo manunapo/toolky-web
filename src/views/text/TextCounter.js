@@ -4,10 +4,13 @@ import {
   Badge,
   Card,
   CardBody,
+  CardHeader,
   CardTitle,
   Row,
   Col,
   Input,
+  Form,
+  FormGroup,
   Table,
 } from "reactstrap";
 
@@ -140,7 +143,7 @@ const TextCounter = (props) => {
     <>
       <div className="content">
         <Row>
-          <Col lg="3" sm="4">
+          <Col lg="3" sm="6">
             <Card className="card-stats">
               <CardBody>
                 <Row>
@@ -154,7 +157,7 @@ const TextCounter = (props) => {
               </CardBody>
             </Card>
           </Col>
-          <Col lg="3" sm="4">
+          <Col lg="3" sm="6">
             <Card className="card-stats">
               <CardBody>
                 <Row>
@@ -168,7 +171,7 @@ const TextCounter = (props) => {
               </CardBody>
             </Card>
           </Col>
-          <Col lg="3" sm="4">
+          <Col lg="3" sm="6">
             <Card className="card-stats">
               <CardBody>
                 <Row>
@@ -182,7 +185,7 @@ const TextCounter = (props) => {
               </CardBody>
             </Card>
           </Col>
-          <Col lg="3" sm="4">
+          <Col lg="3" sm="6">
             <Card className="card-stats">
               <CardBody>
                 <Row>
@@ -200,14 +203,24 @@ const TextCounter = (props) => {
         <Row>
           <Col md="8">
             <Card className="fill-parent card-stats">
+              <CardHeader>
+                <h5 className="card-category">Online Tool</h5>
+                <CardTitle tag="h3">Character and Text Analyser</CardTitle>
+              </CardHeader>
               <CardBody>
-                <Input
-                  type="textarea"
-                  className="resizable"
-                  placeholder="Type in or copy and paste your text here"
-                  value={text}
-                  onChange={handleTextChange}
-                />
+                <Form action="#">
+
+                  <FormGroup>
+                    <Input
+                      type="textarea"
+                      className="resizable"
+                      placeholder="Type in or copy and paste your text here"
+                      value={text}
+                      onChange={handleTextChange}
+                    />
+                  </FormGroup>
+                </Form>
+
               </CardBody>
             </Card>
           </Col>
@@ -264,7 +277,7 @@ const TextCounter = (props) => {
             </Row>
           </Col>
         </Row>
-        <h3 className="title mt-5 text-center">Online Character and Words Counter Tool</h3>
+        <h3 className="title mt-5 text-center">Online Character and Words Counter &#128224;</h3>
         <CardBody>
           <Row>
             <Col sx="4">

@@ -276,7 +276,7 @@ const Timestamp = (props) => {
             </Card>
           </Col>
         </Row>
-        <h3 className="title mt-5 text-center">Timestamps and Date times</h3>
+        <h3 className="title mt-5 text-center">Timestamps and Date times &#128338;</h3>
         <CardBody>
           <Row>
             <Col sx="4">

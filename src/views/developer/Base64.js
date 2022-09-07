@@ -108,7 +108,7 @@ const Base64 = (props) => {
             </Card>
           </Col>
         </Row>
-        <h3 className="title mt-5 text-center">Encoding & Decoding Base64</h3>
+        <h3 className="title mt-5 text-center">Encoding & Decoding Base64 &#128029;</h3>
         <CardBody>
           <Row>
             <Col sx="6">

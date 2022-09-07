@@ -86,6 +86,67 @@ const SecretGenerator = () => {
               </CardHeader>
               <CardBody>
                 <Row>
+                  <Col xs="12">
+                    <Card className="border">
+                      <CardBody>
+                        <Row className="align-items-center">
+                          <Col xs="9">
+                            <div className="text-center">
+                              {generatedSecret}
+                            </div>
+                          </Col>
+                          <Col xs="3">
+                            <Button
+                              className="btn-link btn-icon float-right"
+                              color="danger"
+                              size="sm"
+                              onClick={() => setRefreshSecret(refreshSecret + 1)}
+                            >
+                              <i className="tim-icons icon-refresh-02 float-right"
+                                id="tooltip994367704"
+                              />
+                              <UncontrolledTooltip
+                                delay={0}
+                                target="tooltip994367704"
+                              >
+                                Refresh
+                              </UncontrolledTooltip>
+                            </Button>
+                            <Button
+                              className="btn-link btn-icon float-right"
+                              color="success"
+                              id="tooltip994367702"
+                              size="sm"
+                              onClick={() => { navigator.clipboard.writeText(generatedSecret) }}
+                            >
+                              <i className="tim-icons icon-single-copy-04 float-right" />
+                              <UncontrolledTooltip
+                                delay={0}
+                                target="tooltip994367702"
+                              >
+                                Copy
+                              </UncontrolledTooltip>
+                            </Button>
+                          </Col>
+                        </Row>
+                        <Row className="pt-5">
+                          <Col xs="12">
+                            <PasswordStrengthBar password={generatedSecret} />
+                          </Col>
+                        </Row>
+                      </CardBody>
+                    </Card>
+                  </Col>
+                </Row>
+              </CardBody>
+            </Card>
+          </Col>
+        </Row>
+        <Row>
+          <Col md="12">
+            <Card>
+              <CardBody>
+                <Row>
                   <Col md="6">
                     <Table responsive>
                       <thead className="text-primary">
@@ -101,7 +162,7 @@ const SecretGenerator = () => {
                           <td className="text-center">
                             <CustomInput
                               type="switch"
-                              id="switch-5"
+                              id="switch-2"
                               className="mt-n4"
                               onChange={handleTypeChange}
                             />
@@ -264,60 +325,8 @@ const SecretGenerator = () => {
             </Card>
           </Col>
         </Row>
-        <Row>
-          <Col xs="12">
-            <Card>
-              <CardBody>
-                <Row className="align-items-center">
-                  <Col xs="9">
-                    <div className="text-center">
-                      {generatedSecret}
-                    </div>
-                  </Col>
-                  <Col xs="3">
-                    <Button
-                      className="btn-link btn-icon float-right"
-                      color="danger"
-                      size="sm"
-                      onClick={() => setRefreshSecret(refreshSecret + 1)}
-                    >
-                      <i className="tim-icons icon-refresh-02 float-right"
-                        id="tooltip994367704"
-                      />
-                      <UncontrolledTooltip
-                        delay={0}
-                        target="tooltip994367704"
-                      >
-                        Refresh
-                      </UncontrolledTooltip>
-                    </Button>
-                    <Button
-                      className="btn-link btn-icon float-right"
-                      color="success"
-                      id="tooltip994367702"
-                      size="sm"
-                      onClick={() => { navigator.clipboard.writeText(generatedSecret) }}
-                    >
-                      <i className="tim-icons icon-single-copy-04 float-right" />
-                      <UncontrolledTooltip
-                        delay={0}
-                        target="tooltip994367702"
-                      >
-                        Copy
-                      </UncontrolledTooltip>
-                    </Button>
-                  </Col>
-                </Row>
-                <Row className="pt-5">
-                  <Col xs="12">
-                    <PasswordStrengthBar password={generatedSecret} />
-                  </Col>
-                </Row>
-              </CardBody>
-            </Card>
-          </Col>
-        </Row>
-        <h3 className="title mt-5 text-center">Passwords</h3>
+
+        <h3 className="title mt-5 text-center">Secrets &#128272;</h3>
         <CardBody>
           <Row>
             <Col sx="6">

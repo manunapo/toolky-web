@@ -163,7 +163,7 @@ const Json = (props) => {
             </Card>
           </Col>
         </Row>
-        <h3 className="title mt-5 text-center">JSON Visualizer</h3>
+        <h3 className="title mt-5 text-center">JSON Visualizer  &#128064;</h3>
         <CardBody>
           <Row>
             <Col sx="4">

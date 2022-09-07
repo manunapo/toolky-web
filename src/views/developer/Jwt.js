@@ -11,6 +11,7 @@ import {
   Col,
   Input,
   CardGroup,
+  CardFooter,
 } from "reactstrap";
 
 const Jwt = (props) => {
@@ -109,11 +110,12 @@ const Jwt = (props) => {
                     {decodedPayloadJwtTextArea}
                   </pre>
                 </CardBody>
+                <CardFooter />
               </Card>
             </CardGroup>
           </Col>
         </Row>
-        <h3 className="title mt-5 text-center">JSON Web Tokens</h3>
+        <h3 className="title mt-5 text-center">JSON Web Tokens &#128125;</h3>
         <CardBody>
           <Row>
             <Col sx="6">
@@ -122,8 +124,9 @@ const Jwt = (props) => {
                 JWT is an open, industry-standard (RFC 7519) for representing claims securely between two parties.
               </p>
               <br />
-              In its compact form, JSON Web Tokens consist of three parts separated by dots (.), which are:
-              <br />
+              <p>
+                In its compact form, JSON Web Tokens consist of three parts separated by dots (.), which are:
+              </p>
               <br />
               <p className="blockquote">
                 Header
@@ -135,7 +138,6 @@ const Jwt = (props) => {
               <p>
                 Therefore, a JWT typically looks like the following.
               </p>
-              <br />
               <br />
               <p className="blockquote">
                 xxxxx.yyyyy.zzzzz
@@ -163,7 +165,6 @@ const Jwt = (props) => {
               <p>
                 The JWT specification defines some registered claim names and defines how they should be used. We support these registered claim names:
               </p>
-              <br />
               <br />
               <p className="blockquote">
                 “exp” (Expiration Time) Claim
