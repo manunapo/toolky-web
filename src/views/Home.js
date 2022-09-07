@@ -67,7 +67,7 @@ const Home = () => {
                       <Row>
                         <Col md="12">
                           <Card>
-                            <CardBody>
+                            <CardBody className="p-0">
                               <Form action="#">
                                 <Row>
                                   <Col xs="6">
@@ -85,9 +85,11 @@ const Home = () => {
                                       <Label>Email address</Label>
                                       <Input placeholder="smith.sam@gmail.com" type="email" />
                                     </FormGroup>
-                                    <Button className="btn-fill float-right" type="submit">
-                                      Submit
-                                    </Button>
+                                    <FormGroup className="position-absolute bottom-0 right-3">
+                                      <Button className="btn-round" color="primary">
+                                        <i className="tim-icons icon-spaceship" />
+                                      </Button>
+                                    </FormGroup>
                                   </Col>
                                 </Row>
                               </Form>
