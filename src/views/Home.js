@@ -85,7 +85,7 @@ const Home = () => {
                                       <Label>Email address</Label>
                                       <Input placeholder="smith.sam@gmail.com" type="email" />
                                     </FormGroup>
-                                    <FormGroup className="position-absolute bottom-0 right-3">
+                                    <FormGroup className="position-absolute bottom-2 right-3">
                                       <Button className="btn-round" color="primary">
                                         <i className="tim-icons icon-spaceship" />
                                       </Button>
