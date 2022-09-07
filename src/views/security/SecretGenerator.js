@@ -162,7 +162,7 @@ const SecretGenerator = () => {
                           <td className="text-center">
                             <CustomInput
                               type="switch"
-                              id="switch-2"
+                              id="switch-1"
                               className="mt-n4"
                               onChange={handleTypeChange}
                             />
