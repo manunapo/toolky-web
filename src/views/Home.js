@@ -1,4 +1,9 @@
 import React from "react";
+import { Amplify, API, graphqlOperation } from 'aws-amplify';
+import { createFeedback } from 'graphql/mutations';
+import { v4 as uuid } from 'uuid';
+
+import awsconfig from 'aws-exports';
 
 // reactstrap components
 import {
@@ -20,8 +25,60 @@ import routes from "routes.js";
 
 import { NavLink } from "react-router-dom";
 
-const Home = () => {
+
+Amplify.configure(awsconfig);
+
+const Home = (props) => {
   const [openedCollapseOne, setopenedCollapseOne] = React.useState(false);
+  const [feedbackText, setFeedbackText] = React.useState("");
+  const [feedbackName, setFeedbackName] = React.useState("");
+
+  const [feedbackEmail, setFeedbackEmail] = React.useState("");
+  const [emailState, setEmailState] = React.useState("");
+
+  const verifyEmail = (value) => {
+    var emailRex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (emailRex.test(value)) {
+      return true;
+    }
+    return false;
+  };
+
+  function handleEmailChange(e) {
+    setFeedbackEmail(e.target.value);
+
+    if (verifyEmail(e.target.value)) {
+      setEmailState("has-success");
+    } else {
+      setEmailState("has-danger");
+    }
+  }
+
+  const handleSubmit = e => {
+    e.stopPropagation();
+    e.preventDefault();
+
+    if (emailState === "") {
+      setEmailState("has-danger");
+    }
+
+    if ((emailState === "has-success") && (feedbackName !== "") && (feedbackText !== "")) {
+      const feedback = {
+        id: uuid(),
+        name: feedbackName,
+        email: feedbackEmail,
+        text: feedbackText
+      };
+      API.graphql(graphqlOperation(createFeedback, { input: feedback }))
+        .then(r => {
+          props.handleNotification("Thanks for your message!", "primary");
+          setopenedCollapseOne(!openedCollapseOne);
+        })
+        .catch(e => {
+          props.handleNotification("Upss, something went wrong!", "danger");
+        });
+    }
+  }
 
   return (
     <>
@@ -68,25 +125,51 @@ const Home = () => {
                         <Col md="12">
                           <Card>
                             <CardBody className="p-0">
-                              <Form action="#">
+                              <Form>
                                 <Row>
                                   <Col xs="6">
                                     <FormGroup>
                                       <Label>Text</Label>
-                                      <Input type="textarea" placeholder="Here you enter yours suggestions/comments." className="resizable" />
+                                      <Input
+                                        type="textarea"
+                                        placeholder="Here you enter yours suggestions/comments."
+                                        className="resizable"
+                                        value={feedbackText}
+                                        onChange={(e) => setFeedbackText(e.target.value)}
+                                      />
                                     </FormGroup>
                                   </Col>
                                   <Col xs="6">
+                                    <Label>Name</Label>
                                     <FormGroup>
-                                      <Label>Name</Label>
-                                      <Input placeholder="Sam Smith" type="name" autoComplete="off" />
+                                      <Input
+                                        placeholder="Sam Smith"
+                                        type="name"
+                                        autoComplete="off"
+                                        value={feedbackName}
+                                        onChange={(e) => setFeedbackName(e.target.value)}
+                                      />
                                     </FormGroup>
-                                    <FormGroup>
-                                      <Label>Email address</Label>
-                                      <Input placeholder="smith.sam@gmail.com" type="email" />
+                                    <Label>Email</Label>
+                                    <FormGroup className={emailState}>
+                                      <Input
+                                        placeholder="smith.sam@gmail.com"
+                                        type="email"
+                                        value={feedbackEmail}
+                                        onChange={(e) => handleEmailChange(e)}
+                                      />
+                                      {emailState === "has-danger" ? (
+                                        <label className="error">
+                                          Please enter a valid email address.
+                                        </label>
+                                      ) : null}
                                     </FormGroup>
                                     <FormGroup className="position-absolute bottom-2 right-3">
-                                      <Button className="btn-round" color="primary">
+                                      <Button
+                                        className="btn-round"
+                                        color="primary"
+                                        onClick={handleSubmit}
+                                      >
                                         <i className="tim-icons icon-spaceship" />
                                       </Button>
                                     </FormGroup>

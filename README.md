@@ -17,3 +17,9 @@ TO ADD:
 Comming soon page.
 
 would you like to receive the response via mail? 
+
+BACKEND
+
+This will automatically generate GraphQL documents (queries, mutations, and subscriptions) and generate types for your JavaScript, TypeScript, or Flow application. If you modify the generated documents or your API's schema, you can regenerate the client code anytime with:
+
+amplify codegen
