@@ -10,10 +10,7 @@
     "chart.js": "2.9.4",
     "classnames": "2.2.6",
     "match-sorter": "6.0.2",
-    "gulp": "4.0.2",
-    "gulp-append-prepend": "1.0.8",
     "node-sass": "^7.0.1",
-    "sass-loader": "^13.0.2",
     "nouislider-react": "^3.4.1",
     "perfect-scrollbar": "1.4.0",
     "prop-types": "15.7.2",
@@ -33,7 +30,9 @@
     "react-select": "5.4.0",
     "react-table": "7.6.2",
     "reactstrap": "8.7.1",
-    "source-map-explorer": "^2.5.2"
+    "sass-loader": "^13.0.2",
+    "source-map-explorer": "^2.5.2",
+    "uuidv4": "^6.2.13"
   },
   "optionalDependencies": {
     "eslint-plugin-flowtype": "8.0.3",
@@ -42,7 +41,7 @@
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "react-scripts start",
-    "build": "react-scripts build && gulp licenses",
+    "build": "react-scripts build",
     "build:prod": "GENERATE_SOURCEMAP=false react-scripts build",
     "golive": "serve -s build",
     "test": "react-scripts test",
@@ -60,5 +59,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "aws-amplify": "^4.3.35"
+  }
 }
