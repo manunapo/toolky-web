@@ -10,6 +10,14 @@
       "StackName": "amplify-amplify51fb1e022e634-staging-144746",
       "StackId": "arn:aws:cloudformation:us-east-1:657181639365:stack/amplify-amplify51fb1e022e634-staging-144746/5eb97c30-304e-11ed-9e01-1293e0c45c37",
       "AmplifyAppId": "d1031q11s74a06"
+    },
+    "categories": {
+      "function": {
+        "amplifygcpwebrisk": {
+          "deploymentBucketName": "amplify-amplify51fb1e022e634-staging-144746-deployment",
+          "s3Key": "amplify-builds/amplifygcpwebrisk-323634693063474d2b38-build.zip"
+        }
+      }
     }
   }
 }

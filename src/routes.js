@@ -1,4 +1,5 @@
 import SecretGenerator from "views/security/SecretGenerator.js";
+import SiteRiskAnalyzer from "views/security/SiteRiskAnalyzer.js";
 import Base64 from "views/developer/Base64.js";
 import Jwt from "views/developer/Jwt.js";
 import Json from "views/developer/Json.js";
@@ -53,6 +54,14 @@ const routes = [
         subname: "Customizable",
         mini: "PG",
         component: SecretGenerator,
+        layout: "/tools",
+      },
+      {
+        path: "/siterisk",
+        name: "Risk Analyzer",
+        subname: "Web Site",
+        mini: "RA",
+        component: SiteRiskAnalyzer,
         layout: "/tools",
       },
     ],
