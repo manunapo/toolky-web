@@ -16,11 +16,11 @@ TO ADD:
     GCP Web Risk API
 
 
-## BACKEND
+# BACKEND
 
 Amplify
 
-# Lambda functions
+## Lambda functions
 
 Now there is one lambda function for quering GCP Web Risk API.
 
@@ -42,7 +42,7 @@ To access AWS resources outside of this Amplify app, edit the /Users/mnapoli/Doc
 
 "amplify publish" builds all of your local backend and front-end resources (if you added hosting category) and provisions them in the cloud
 
-# API GraphQL
+## API GraphQL
 
 This will automatically generate GraphQL documents (queries, mutations, and subscriptions) and generate types for your JavaScript, TypeScript, or Flow application. If you modify the generated documents or your API's schema, you can regenerate the client code anytime with:
 
