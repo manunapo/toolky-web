@@ -7,7 +7,8 @@ exports.handler = async (event) => {
     console.log(`EVENT: ${JSON.stringify(event)}`);
 
     const { WebRiskServiceClient, protos } = require('@google-cloud/web-risk');
-    const client = new WebRiskServiceClient();
+    
+    const client = new WebRiskServiceClient()
 
     let statusCode = 500;
     let body = {};
@@ -36,6 +37,7 @@ exports.handler = async (event) => {
                 console.info('No threats found');
             }
         } catch (e) {
+            console.log("Exception: " + e);
             body = JSON.stringify(e);
         }
     }
