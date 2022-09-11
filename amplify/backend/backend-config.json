@@ -21,5 +21,12 @@
         }
       }
     }
+  },
+  "function": {
+    "amplifygcpwebrisk": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
   }
 }

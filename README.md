@@ -1,25 +1,50 @@
-npm install axios --save-prod
-npm install --save --legacy-peer-deps
-npm i react-json-view --save
-npm install sass-loader node-sass --save-dev
-npm install nouislider-react --save
-npm install react-password-strength-bar --save
-
 IDEAS:
-Implement welcoming funfact/useless fact ? https://uselessfacts.jsph.pl/
 
-Get your visitor's country from their IP http://country.is/
+- Implement welcoming funfact/useless fact ? https://uselessfacts.jsph.pl/
 
+- Get your visitor's country from their IP http://country.is/
 
 
 TO ADD:
 
-Comming soon page.
+- Privacy policy.
+- Comming soon page.
+- 'NEW!' icon for new tools.
+- Captcha in requests
+- Banner asking for be included in dist. list
+- Security -> web page security analyzer
+    GCP Web Risk API
 
-would you like to receive the response via mail? 
 
-BACKEND
+## BACKEND
+
+Amplify
+
+# Lambda functions
+
+Now there is one lambda function for quering GCP Web Risk API.
+
+This lambda function has a dependency on 
+
+"@google-cloud/web-risk": "^3.1.1",
+
+and a environmental variable for authentication:
+
+GOOGLE_APPLICATION_CREDENTIALS="/Users/mnapoli/Documents/04-ManuNapo/toolkys-web/private/toolkys-8e8b404e83cd.json"
+
+"amplify function build" builds all of your functions currently in the project
+
+"amplify mock function <functionName>" runs your function locally
+
+To access AWS resources outside of this Amplify app, edit the /Users/mnapoli/Documents/04-ManuNapo/toolkys-web/amplify/backend/function/amplifygcpwebrisk/custom-policies.json
+
+"amplify push" builds all of your local backend resources and provisions them in the cloud
+
+"amplify publish" builds all of your local backend and front-end resources (if you added hosting category) and provisions them in the cloud
+
+# API GraphQL
 
 This will automatically generate GraphQL documents (queries, mutations, and subscriptions) and generate types for your JavaScript, TypeScript, or Flow application. If you modify the generated documents or your API's schema, you can regenerate the client code anytime with:
 
 amplify codegen
+
