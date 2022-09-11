@@ -1,4 +1,17 @@
 {
   "lambdaLayers": [],
-  "environmentVariableList": []
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "bucket",
+      "environmentVariableName": "BUCKET"
+    },
+    {
+      "cloudFormationParameterName": "gcpWebRiskKey",
+      "environmentVariableName": "GCP_WEB_RISK_KEY"
+    },
+    {
+      "cloudFormationParameterName": "googleApplicationCredentials",
+      "environmentVariableName": "GOOGLE_APPLICATION_CREDENTIALS"
+    }
+  ]
 }

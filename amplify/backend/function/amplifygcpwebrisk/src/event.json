@@ -1,5 +1,5 @@
 {
-  "url": "www.google.com",
+  "url": "http%3A%2F%2Ftestsafebrowsing.appspot.com%2Fs%2Fmalware.html",
   "url_ok": "www.google.com",
   "url_malware": "http%3A%2F%2Ftestsafebrowsing.appspot.com%2Fs%2Fmalware.html"
 }

@@ -5,7 +5,8 @@
   "main": "index.js",
   "license": "Apache-2.0",
   "dependencies": {
-    "@google-cloud/web-risk": "^3.1.1"
+    "@google-cloud/web-risk": "^3.1.1",
+    "aws-sdk": "^2.1213.0"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.92"

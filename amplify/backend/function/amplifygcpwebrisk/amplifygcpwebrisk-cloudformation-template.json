@@ -15,6 +15,15 @@
     },
     "s3Key": {
       "Type": "String"
+    },
+    "bucket": {
+      "Type": "String"
+    },
+    "gcpWebRiskKey": {
+      "Type": "String"
+    },
+    "googleApplicationCredentials": {
+      "Type": "String"
     }
   },
   "Conditions": {
@@ -69,6 +78,15 @@
             },
             "REGION": {
               "Ref": "AWS::Region"
+            },
+            "BUCKET": {
+              "Ref": "bucket"
+            },
+            "GCP_WEB_RISK_KEY": {
+              "Ref": "gcpWebRiskKey"
+            },
+            "GOOGLE_APPLICATION_CREDENTIALS": {
+              "Ref": "googleApplicationCredentials"
             }
           }
         },
