@@ -1,6 +1,6 @@
 import React from "react";
 import { Amplify, API, graphqlOperation } from 'aws-amplify';
-import { getWebRisk } from 'graphql/queries';
+/* import { getWebRisk } from 'graphql/queries'; */
 
 import awsconfig from 'aws-exports';
 // reactstrap components
