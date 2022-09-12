@@ -48,3 +48,6 @@ This will automatically generate GraphQL documents (queries, mutations, and subs
 
 amplify codegen
 
+Check to see if the updates to your schema are compiled successfully by running the following command:
+
+amplify api gql-compile

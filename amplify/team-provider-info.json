@@ -15,7 +15,7 @@
       "function": {
         "amplifygcpwebrisk": {
           "deploymentBucketName": "amplify-amplify51fb1e022e634-staging-144746-deployment",
-          "s3Key": "amplify-builds/amplifygcpwebrisk-686e6d71497a4159384f-build.zip",
+          "s3Key": "amplify-builds/amplifygcpwebrisk-63716a7178574254412f-build.zip",
           "bucket": "toolkys",
           "gcpWebRiskKey": "gcp-web-risk/toolkys-8e8b404e83cd.json",
           "googleApplicationCredentials": "/tmp/toolkys-8e8b404e83cd.json"

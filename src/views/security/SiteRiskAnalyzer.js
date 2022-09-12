@@ -1,5 +1,8 @@
 import React from "react";
+import { Amplify, API, graphqlOperation } from 'aws-amplify';
+import { getWebRisk } from 'graphql/queries';
 
+import awsconfig from 'aws-exports';
 // reactstrap components
 import {
   Card,
@@ -19,11 +22,18 @@ import {
   UncontrolledTooltip,
 } from "reactstrap";
 
-const SiteRiskAnalyzer = () => {
+const SiteRiskAnalyzer = (props) => {
 
-  
+
   React.useEffect(() => {
-    
+    API.graphql(graphqlOperation(getWebRisk, { url: "www.google.com" }))
+      .then(r => {
+        console.log(r);
+        
+      })
+      .catch(e => {
+        console.log(r);
+      });
   }, []);
 
   return (
