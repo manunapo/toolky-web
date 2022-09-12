@@ -26,14 +26,14 @@ const SiteRiskAnalyzer = (props) => {
 
 
   React.useEffect(() => {
-    API.graphql(graphqlOperation(getWebRisk, { url: "www.google.com" }))
+    /* API.graphql(graphqlOperation(getWebRisk, { url: "www.google.com" }))
       .then(r => {
         console.log(r);
         
       })
       .catch(e => {
         console.log(r);
-      });
+      }); */
   }, []);
 
   return (
