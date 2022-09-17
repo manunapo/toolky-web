@@ -4,8 +4,9 @@ import { schema } from './schema';
 
 
 
-const { Feedback } = initSchema(schema);
+const { Feedback, LambdaResponse } = initSchema(schema);
 
 export {
-  Feedback
+  Feedback,
+  LambdaResponse
 };

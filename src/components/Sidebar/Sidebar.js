@@ -173,7 +173,7 @@ const Sidebar = (props) => {
           onClick={props.closeSidebar}
         >
           <div className="logo-img">
-            <img src={logo.imgSrc} alt="react-logo" />
+            <img src={logo.imgSrc} alt="toolkys-logo" />
           </div>
         </a>
       );

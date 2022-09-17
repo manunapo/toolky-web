@@ -1,6 +1,22 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const getWebRisk = /* GraphQL */ `
+  query GetWebRisk($url: String) {
+    getWebRisk(url: $url) {
+      statusCode
+      body
+    }
+  }
+`;
+export const getTlsCert = /* GraphQL */ `
+  query GetTlsCert($url: String) {
+    getTlsCert(url: $url) {
+      statusCode
+      body
+    }
+  }
+`;
 export const getFeedback = /* GraphQL */ `
   query GetFeedback($id: ID!) {
     getFeedback(id: $id) {

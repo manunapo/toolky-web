@@ -57,8 +57,10 @@ const routes = [
         layout: "/tools",
       },
       {
+        new: true,
         path: "/siterisk",
         name: "Risk Analyzer",
+        iconhome: "tim-icons icon-zoom-split",
         subname: "Web Site",
         mini: "RA",
         component: SiteRiskAnalyzer,

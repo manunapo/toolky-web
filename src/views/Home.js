@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import { Amplify, API, graphqlOperation } from 'aws-amplify';
 import { createFeedback } from 'graphql/mutations';
 import { v4 as uuid } from 'uuid';
@@ -19,22 +19,22 @@ import {
   Form,
   Label,
   Button,
+  CardFooter,
 } from "reactstrap";
 
 import routes from "routes.js";
 
 import { NavLink } from "react-router-dom";
 
-
 Amplify.configure(awsconfig);
 
 const Home = (props) => {
-  const [openedCollapseOne, setopenedCollapseOne] = React.useState(false);
-  const [feedbackText, setFeedbackText] = React.useState("");
-  const [feedbackName, setFeedbackName] = React.useState("");
+  const [openedCollapseOne, setopenedCollapseOne] = useState(false);
+  const [feedbackText, setFeedbackText] = useState("");
+  const [feedbackName, setFeedbackName] = useState("");
 
-  const [feedbackEmail, setFeedbackEmail] = React.useState("");
-  const [emailState, setEmailState] = React.useState("");
+  const [feedbackEmail, setFeedbackEmail] = useState("");
+  const [emailState, setEmailState] = useState("");
 
   const verifyEmail = (value) => {
     var emailRex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -212,19 +212,30 @@ const Home = (props) => {
                                   <CardBody>
                                     <Row>
                                       <Col xs="2">
-                                        <div className={prop.iconclass}>
-                                          <i className={prop.icon} />
+                                        <div className={prop2.iconclass ? prop2.iconclass : prop.iconclass}>
+                                          <i className={prop2.iconhome ? prop2.iconhome : prop.icon} />
+
                                         </div>
                                       </Col>
                                       <Col xs="10">
                                         <div className="numbers">
                                           <p className="card-category">{prop2.subname}</p>
                                           <CardTitle tag="h3">{prop2.name}</CardTitle>
+
                                         </div>
                                       </Col>
                                     </Row>
                                     <NavLink to={prop2.layout + prop2.path} className="stretched-link" />
                                   </CardBody>
+                                  {prop2.new ? (
+                                    <CardFooter>
+                                      <div className="new-label">
+                                        <div className="new-text">NEW!</div>
+                                      </div>
+                                    </CardFooter>
+                                  ) : (
+                                    <></>
+                                  )}
                                 </Card>
                               </Col>
                             </Row>
