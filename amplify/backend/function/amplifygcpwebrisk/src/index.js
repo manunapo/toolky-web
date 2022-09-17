@@ -11,6 +11,8 @@ exports.handler = async (event) => {
     let destFile = process.env.GOOGLE_APPLICATION_CREDENTIALS
     console.log("destFile: " + destFile);
 
+    let url = event?.arguments?.url || event.url;
+
     // First check if the creds already exist locally
     const Fs = require('fs');
     let credsExist = Fs.existsSync(destFile);
@@ -43,7 +45,7 @@ exports.handler = async (event) => {
     }
 
     let statusCode = 500;
-    let body = "";
+    let body = {};
 
     // Once we have the creds we can do the call to GCP Web Risk API
     if (credsExist) {
@@ -51,12 +53,12 @@ exports.handler = async (event) => {
         const { WebRiskServiceClient, protos } = require('@google-cloud/web-risk');
         const client = new WebRiskServiceClient()
 
-        if (event.url !== "") {
+        if (url !== "") {
 
             // Create an API request to check for malware, social engineering,
             // and unwanted software.
             const request = {
-                uri: event.url,
+                uri: url,
                 threatTypes: [
                     protos.google.cloud.webrisk.v1.ThreatType.MALWARE,
                     protos.google.cloud.webrisk.v1.ThreatType.SOCIAL_ENGINEERING,
@@ -69,24 +71,24 @@ exports.handler = async (event) => {
                 const { threat } = (await client.searchUris(request))[0];
                 if (threat) {
                     statusCode = 200;
-                    body = JSON.stringify(threat);
+                    body = threat;
                 } else {
                     statusCode = 200;
-                    body = "No threats found";
+                    body = { "msg": "No threats found" };
                     console.info('No threats found');
                 }
             } catch (e) {
                 console.log("Exception: " + e);
-                body = JSON.stringify(e);
+                body = { "err_msg": e };
             }
         }
     } else {
-        body = "There was an error retrieving the S3 GCP credentials file"
+        body = { "err_msg": "There was an error retrieving the S3 GCP credentials file" }
     }
 
     // Finally we return
     return {
         statusCode: statusCode,
-        body: body,
+        body: JSON.stringify(body),
     };
 };

@@ -75,6 +75,26 @@ export const schema = {
         }
     },
     "enums": {},
-    "nonModels": {},
-    "version": "e34da82d8b7ccbfe285cd6e45ff9f5a2"
+    "nonModels": {
+        "LambdaResponse": {
+            "name": "LambdaResponse",
+            "fields": {
+                "statusCode": {
+                    "name": "statusCode",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "body": {
+                    "name": "body",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                }
+            }
+        }
+    },
+    "version": "856a6733d8bc35cce5edc0f9ffdd66f6"
 };

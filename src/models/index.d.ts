@@ -1,5 +1,11 @@
 import { ModelInit, MutableModel } from "@aws-amplify/datastore";
 
+export declare class LambdaResponse {
+  readonly statusCode?: number | null;
+  readonly body?: string | null;
+  constructor(init: ModelInit<LambdaResponse>);
+}
+
 type FeedbackMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }

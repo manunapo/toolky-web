@@ -9,11 +9,13 @@ TO ADD:
 
 - Privacy policy.
 - Comming soon page.
-- 'NEW!' icon for new tools.
 - Captcha in requests
 - Banner asking for be included in dist. list
-- Security -> web page security analyzer
-    GCP Web Risk API
+
+VIDEOS:
+
+Passwords
+https://youtu.be/xHSnHj-zKF4
 
 
 # BACKEND

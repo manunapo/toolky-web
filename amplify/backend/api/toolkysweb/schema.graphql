@@ -4,3 +4,13 @@ type Feedback @model @auth(rules: [{allow: public}]) {
   email: String
   text: String
 }
+
+type LambdaResponse {
+  statusCode: Int
+  body: String
+}
+
+type Query {
+  getWebRisk(url: String): LambdaResponse @function(name: "amplifygcpwebrisk-${env}")
+  getTlsCert(url: String): LambdaResponse @function(name: "amplifytlscert-${env}")
+}
