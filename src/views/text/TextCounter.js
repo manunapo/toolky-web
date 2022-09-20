@@ -205,7 +205,7 @@ const TextCounter = (props) => {
             <Card className="fill-parent card-stats">
               <CardHeader>
                 <h5 className="card-category">Online Tool</h5>
-                <CardTitle tag="h3">Character and Text Analyser</CardTitle>
+                <CardTitle tag="h3">Character and Text Analyzer</CardTitle>
               </CardHeader>
               <CardBody>
                 <Form action="#">
@@ -293,7 +293,7 @@ const TextCounter = (props) => {
               </p>
             </Col>
             <Col xs="12">
-              <h3 className="mt-5">How to extimate the reading time?</h3>
+              <h3 className="mt-5">How to estimate the reading time?</h3>
               <h5 className="">Research varies, but generally, the average adult reads 200-250 words in one minute. You can use this information to calculate the estimated time to read.</h5>
             </Col>
 
