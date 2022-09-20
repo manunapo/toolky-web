@@ -49,7 +49,7 @@ const routes = [
     state: "passwordCollapse",
     views: [
       {
-        path: "/passgen",
+        path: "/passwordgenerator",
         name: "Password Generator",
         subname: "Customizable",
         mini: "PG",
@@ -58,7 +58,7 @@ const routes = [
       },
       {
         new: true,
-        path: "/siterisk",
+        path: "/siteanalyzer",
         name: "Risk Analyzer",
         iconhome: "tim-icons icon-zoom-split",
         subname: "Web Site",
@@ -76,7 +76,7 @@ const routes = [
     state: "developerCollapse",
     views: [
       {
-        path: "/encodig",
+        path: "/base64",
         name: "Base64",
         subname: "Decode & Encode",
         mini: "B64",
@@ -92,7 +92,7 @@ const routes = [
         layout: "/tools",
       },
       {
-        path: "/json",
+        path: "/jsonviewer",
         name: "JSON Viewer",
         subname: "Stringify",
         mini: "JS",
