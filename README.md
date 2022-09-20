@@ -4,13 +4,15 @@ IDEAS:
 
 - Get your visitor's country from their IP http://country.is/
 
+- 1 password affilate link
+- host finder https://youtu.be/hxLW4FPDJuc
 
 TO ADD:
 
 - Privacy policy.
 - Comming soon page.
 - Captcha in requests
-- Banner asking for be included in dist. list
+- Google Analytics added, check if it is working.
 
 VIDEOS:
 

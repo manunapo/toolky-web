@@ -77,7 +77,7 @@ const Json = (props) => {
                   Real time JSON visualizer.
                   <br />
                   <br />
-                  Simply paste a json or type it manually and start seeing it stringifyed or in a tree structure.
+                  Simply paste a json or type it manually and start seeing it stringifyed and in a tree structure.
                 </p>
               </CardBody>
             </Card>
