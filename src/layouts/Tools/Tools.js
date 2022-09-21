@@ -15,11 +15,6 @@ import routes from "routes.js";
 
 import logo from "assets/img/toolkys-logo.png";
 
-import ReactGA from 'react-ga';
-
-const TRACKING_ID = "G-98J31382D2";
-ReactGA.initialize(TRACKING_ID);
-
 var ps;
 
 const Tools = (props) => {
@@ -38,7 +33,6 @@ const Tools = (props) => {
     }
   }, [location]);
   React.useEffect(() => {
-    ReactGA.pageview(window.location.pathname + window.location.search);
 
     let innerMainPanelRef = mainPanelRef;
     if (navigator.platform.indexOf("Win") > -1) {
