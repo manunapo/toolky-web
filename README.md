@@ -19,6 +19,10 @@ VIDEOS:
 Passwords
 https://youtu.be/xHSnHj-zKF4
 
+BUGS:
+
+- JWT, show raw payload when cant decode.
+
 
 # BACKEND
 
