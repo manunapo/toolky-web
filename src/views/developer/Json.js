@@ -1,7 +1,6 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import ReactJson from 'react-json-view'
 
-// reactstrap components
 import {
   Card,
   CardHeader,
@@ -36,9 +35,13 @@ const Json = (props) => {
       }
     }
   };
-  const [rawJsonTextArea, setRawJsonTextArea] = React.useState(JSON.stringify(initialData, null, 4));
-  const [prettyJsonComp, setPrettyJsonComp] = React.useState(initialData);
-  const [stringifyJsonTextArea, setStringifyJsonTextArea] = React.useState(stringifyJson(JSON.stringify(initialData)));
+  const [rawJsonTextArea, setRawJsonTextArea] = useState(JSON.stringify(initialData, null, 4));
+  const [prettyJsonComp, setPrettyJsonComp] = useState(initialData);
+  const [stringifyJsonTextArea, setStringifyJsonTextArea] = useState(stringifyJson(JSON.stringify(initialData)));
+
+  useEffect(() => {
+    props.sendPageView(props.location.pathname);
+  });
 
   function stringifyJson(value) {
     let obj;

@@ -1,6 +1,6 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import { Buffer } from "buffer";
-// reactstrap components
+
 import {
   Card,
   CardHeader,
@@ -18,10 +18,14 @@ import {
 const Base64 = (props) => {
   const initialEncData = "clientId:clientSecret"
   const initialDecData = "Y2xpZW50SWQ6Y2xpZW50U2VjcmV0"
-  const [encodeTextArea, setEncodeTextArea] = React.useState(initialEncData);
-  const [decodeTextArea, setDecodeTextArea] = React.useState(initialDecData);
+  const [encodeTextArea, setEncodeTextArea] = useState(initialEncData);
+  const [decodeTextArea, setDecodeTextArea] = useState(initialDecData);
 
   // to prompt an alert -> props.handleNotification(response.data.msg, "danger");
+
+  useEffect(() => {
+    props.sendPageView(props.location.pathname);
+  });
 
   function handleEncoding() {
     let buff = Buffer.from(encodeTextArea, 'utf-8');

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // reactstrap components
 import {
   Badge,
@@ -32,6 +32,10 @@ const TextCounter = (props) => {
       </tr>
     </tbody>
   );
+
+  useEffect(() => {
+    props.sendPageView(props.location.pathname);
+  });
 
   function isNumber(char) {
     return /^\d$/.test(char);

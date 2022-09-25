@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { randomCase, toCamelCase, toTitleCase, toggleCase } from "helpers/CaseFormatter.js";
 
 import {
@@ -17,6 +17,10 @@ import {
 
 const CaseConverter = (props) => {
   const [textArea, setTextArea] = useState("");
+
+  useEffect(() => {
+    props.sendPageView(props.location.pathname);
+  });
 
   return (
     <>

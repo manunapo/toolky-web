@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-// reactstrap components
+
 import {
   Card,
   CardHeader,
@@ -19,12 +19,13 @@ const Timestamp = (props) => {
   const [editableTimeInEpoch, setEditableTimeInEpoch] = useState(Math.floor(new Date().getUTCDate() / 1000.0));
 
   useEffect(() => {
+    props.sendPageView(props.location.pathname);
     const intervalId = setInterval(() => {
       setCurrentTimeInEpoch(Math.floor(new Date().getTime() / 1000.0));
     }, 1000);
 
     return () => clearInterval(intervalId);
-  }, []);
+  });
 
   function epochToUTC(epochTime) {
     return new Date(epochTime * 1000).toUTCString();

@@ -76,17 +76,17 @@ const Tools = (props) => {
       setOpacity(0);
     }
   };
-  const getRoutes = (routes) => {
+  const getRoutes = (routes, sendPageView) => {
     return routes.map((prop, key) => {
       if (prop.collapse) {
-        return getRoutes(prop.views);
+        return getRoutes(prop.views, sendPageView);
       }
       if (prop.layout === "/tools") {
         return (
           <Route
             key={key}
             path={prop.layout + prop.path}
-            render={(props) => <prop.component {...props} handleNotification={handleNotification} />}
+            render={(props) => <prop.component {...props} sendPageView={sendPageView} handleNotification={handleNotification} />}
           />
         );
       } else {
@@ -180,7 +180,7 @@ const Tools = (props) => {
           toggleSidebar={toggleSidebar}
         />
         <Switch>
-          {getRoutes(routes)}
+          {getRoutes(routes, props.sendPageView)}
           <Redirect from="*" to="/tools/home" />
         </Switch>
         {

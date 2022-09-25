@@ -1,7 +1,6 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import { Buffer } from "buffer";
 
-// reactstrap components
 import {
   Card,
   CardHeader,
@@ -26,10 +25,14 @@ const Jwt = (props) => {
     "iat": 1516239022
   };
 
-  const [encodedJwtTextArea, setEncodedJwtTextArea] = React.useState(initialJwt);
-  const [styleInputError, setStyleInputError] = React.useState('no-error');
-  const [decodedHeaderJwtTextArea, setDecodedHeaderJwtTextArea] = React.useState(JSON.stringify(initialHeader, null, 4));
-  const [decodedPayloadJwtTextArea, setDecodedPayloadJwtTextArea] = React.useState(JSON.stringify(initialPayload, null, 4));
+  const [encodedJwtTextArea, setEncodedJwtTextArea] = useState(initialJwt);
+  const [styleInputError, setStyleInputError] = useState('no-error');
+  const [decodedHeaderJwtTextArea, setDecodedHeaderJwtTextArea] = useState(JSON.stringify(initialHeader, null, 4));
+  const [decodedPayloadJwtTextArea, setDecodedPayloadJwtTextArea] = useState(JSON.stringify(initialPayload, null, 4));
+
+  useEffect(() => {
+    props.sendPageView(props.location.pathname);
+  });
 
   function handleJwtDecoding(event) {
     const dataToDec = event.target.value;

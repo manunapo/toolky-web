@@ -1,10 +1,9 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import Nouislider from "nouislider-react";
 import PasswordStrengthBar from 'react-password-strength-bar';
 
 import { specialChars, generatePassword, generatePassphrase } from "helpers/SecretGenerator.js";
 
-// reactstrap components
 import {
   Card,
   CardHeader,
@@ -23,45 +22,38 @@ import {
   UncontrolledTooltip,
 } from "reactstrap";
 
-const SecretGenerator = () => {
+const SecretGenerator = (props) => {
 
   const START_LENGTH_PW = 8;
   const START_LENGTH_PH = 4;
 
 
-  const [isPasswordType, setPasswordType] = React.useState(true);
-  const [includeLowerCases, setIncludeLowerCases] = React.useState(true);
-  const [includeUpperCases, setIncludeUpperCases] = React.useState(true);
-  const [includeNumbers, setIncludeNumbers] = React.useState(true);
-  const [includeSpecialChars, setIncludeSpecialChars] = React.useState(false);
-  const [secretLength, setSecretLength] = React.useState(8);
+  const [isPasswordType, setPasswordType] = useState(true);
+  const [includeLowerCases, setIncludeLowerCases] = useState(true);
+  const [includeUpperCases, setIncludeUpperCases] = useState(true);
+  const [includeNumbers, setIncludeNumbers] = useState(true);
+  const [includeSpecialChars, setIncludeSpecialChars] = useState(false);
+  const [secretLength, setSecretLength] = useState(8);
 
-  const [capitalizePassphrase, setCapitalizePassphrase] = React.useState(false);
-  const [passphraseSeparator, setPassphraseSeparator] = React.useState("-");
+  const [capitalizePassphrase, setCapitalizePassphrase] = useState(false);
+  const [passphraseSeparator, setPassphraseSeparator] = useState("-");
 
-  const [generatedSecret, setGeneratedSecret] = React.useState();
-  const [refreshSecret, setRefreshSecret] = React.useState(0);
+  const [generatedSecret, setGeneratedSecret] = useState();
+  const [refreshSecret, setRefreshSecret] = useState(0);
 
-  const handleRefreshSecret = function () {
 
-  };
 
-  const handleTypeChange = function () {
-    setPasswordType(!isPasswordType);
-    if (isPasswordType) {
-      setSecretLength(START_LENGTH_PH);
-    } else {
-      setSecretLength(START_LENGTH_PW);
-    }
-  };
+  useEffect(() => {
+    props.sendPageView(props.location.pathname);
+  });
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isPasswordType) {
       if (!includeLowerCases && !includeUpperCases && !includeNumbers && !includeSpecialChars) setIncludeLowerCases(!includeLowerCases);
       setGeneratedSecret(generatePassword(secretLength, includeLowerCases, includeUpperCases, includeNumbers, includeSpecialChars));
     } else {
       setGeneratedSecret(generatePassphrase(secretLength, capitalizePassphrase, passphraseSeparator));
-    } handleRefreshSecret();
+    }
   }, [
     isPasswordType,
     includeUpperCases,
@@ -73,6 +65,15 @@ const SecretGenerator = () => {
     passphraseSeparator,
     refreshSecret
   ]);
+
+  const handleTypeChange = function () {
+    setPasswordType(!isPasswordType);
+    if (isPasswordType) {
+      setSecretLength(START_LENGTH_PH);
+    } else {
+      setSecretLength(START_LENGTH_PW);
+    }
+  };
 
   return (
     <>

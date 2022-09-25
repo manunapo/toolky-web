@@ -1,9 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { API, graphqlOperation } from 'aws-amplify';
 import { getWebRisk, getTlsCert } from 'graphql/queries';
 import isFQDN from 'validator/es/lib/isFQDN';
 
-// reactstrap components
 import {
   Card,
   CardHeader,
@@ -21,6 +20,10 @@ const SiteRiskAnalyzer = (props) => {
   const [searchBox, setSearchBox] = useState("");
   const [certificateInfo, setCertificateInfo] = useState(<></>);
   const [webRiskInfo, setWebRiskInfo] = useState(<></>);
+
+  useEffect(() => {
+    props.sendPageView(props.location.pathname);
+  });
 
   const loadingStatus = <>
     <tr>
@@ -372,9 +375,9 @@ const SiteRiskAnalyzer = (props) => {
                     Google may report up to 3 types of threats:
                     <br />
                     <br />
-                    <p className="blockquote text-center">
-                      MALWARE, SOCIAL_ENGINEERING and UNWANTED_SOFTWARE
-                    </p>
+                  </p>
+                  <p className="blockquote text-center">
+                    MALWARE, SOCIAL_ENGINEERING and UNWANTED_SOFTWARE
                   </p>
                 </CardBody>
               </Card>

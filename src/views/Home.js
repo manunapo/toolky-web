@@ -1,11 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Amplify, API, graphqlOperation } from 'aws-amplify';
 import { createFeedback } from 'graphql/mutations';
 import { v4 as uuid } from 'uuid';
 
 import awsconfig from 'aws-exports';
 
-// reactstrap components
 import {
   Card,
   CardHeader,
@@ -35,6 +34,10 @@ const Home = (props) => {
 
   const [feedbackEmail, setFeedbackEmail] = useState("");
   const [emailState, setEmailState] = useState("");
+
+  useEffect(() => {
+    props.sendPageView(props.location.pathname);
+  });
 
   const verifyEmail = (value) => {
     var emailRex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
