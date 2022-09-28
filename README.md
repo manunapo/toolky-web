@@ -21,7 +21,8 @@ https://youtu.be/xHSnHj-zKF4
 
 BUGS:
 
-- JWT, show raw payload when cant decode.
+- [BUG-1] JWT, show raw payload when cant decode.
+- [FIXED][BUG-2] http http://example.com/ https://whynohttps.com/
 
 
 # BACKEND

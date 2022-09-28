@@ -40,7 +40,6 @@ const SiteRiskAnalyzer = (props) => {
 
   function fillTlsCertificateInfoSuccess(data) {
     let dataJSON = JSON.parse(data.body).certificate;
-    console.log(dataJSON);
     if (data.statusCode === 200) {
       setCertificateInfo(
         <>
@@ -178,24 +177,32 @@ const SiteRiskAnalyzer = (props) => {
     if (searchBox !== "") {
 
       let hostname = searchBox;
+      let protocol = "https:";
+
+      // check if the url is in the strict format hostname.com
       if (!isFQDN(searchBox)) {
         let url = document.createElement("a");
         url.href = searchBox;
         hostname = url.hostname;
+        protocol = url.protocol;
       }
 
       setCertificateInfo(loadingStatus);
-      API.graphql(graphqlOperation(getTlsCert, { url: hostname }))
-        .then(r => {
-          if (r.data.getTlsCert.statusCode === 200)
-            fillTlsCertificateInfoSuccess(r.data.getTlsCert);
-          else {
+      if (protocol === "https:") {
+        API.graphql(graphqlOperation(getTlsCert, { url: hostname }))
+          .then(r => {
+            if (r.data.getTlsCert.statusCode === 200)
+              fillTlsCertificateInfoSuccess(r.data.getTlsCert);
+            else {
+              fillInfoError("Can not be validated!");
+            }
+          })
+          .catch(e => {
             fillInfoError("Can not be validated!");
-          }
-        })
-        .catch(e => {
-          fillInfoError("Can not be validated!");
-        });
+          });
+      } else {
+        fillInfoError("It is HTTP. Your connection to this site will not be secured!");
+      }
 
       setWebRiskInfo(loadingStatus);
       API.graphql(graphqlOperation(getWebRisk, { url: searchBox }))
