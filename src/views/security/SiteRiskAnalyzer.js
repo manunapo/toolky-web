@@ -286,21 +286,23 @@ const SiteRiskAnalyzer = (props) => {
             </Card>
           </Col>
         </Row>
-        <h3 className="title mt-5 text-center">Web Site Risk Analyzer &#128373;</h3>
+        <h1 className="title mt-5 text-center">Web Site Risk Analyzer &#128373;</h1>
         <CardBody>
           <Row>
             <Col sx="6">
-              <p className="text-center">
-                Here at Toolkys we created a tool for easily checking if a website seems to be safe. "Seems" because we never could be 100% sure.
-                <br />
-                <br />
-                By searching the URL above, toolkys will be doing 2 main actions: first, retrieving its SSL certificate for easier comprehension, and second, calling Google's Web Risk API.
-                <br />
-                <br />
-              </p>
-              <p className="blockquote text-center">
-                &#128680; PLEASE, although we do not find any threat, be aware that a site can still be unsafe! &#128680;
-              </p>
+              <div className="text-justify">
+                <p>
+                  Here at Toolkys we created a tool for easily checking if a website seems to be safe. "Seems" because we never could be 100% sure.
+                  <br />
+                  <br />
+                  By searching the URL above, toolkys will be doing 2 main actions: first, <mark>retrieve its SSL certificate</mark> for easier comprehension, and second, <mark>call Google's Web Risk API</mark>.
+                  <br />
+                  <br />
+                </p>
+                <p className="blockquote text-center">
+                  &#128680; PLEASE, although we do not find any threat, be aware that a site can still be unsafe! &#128680;
+                </p>
+              </div>
             </Col>
           </Row>
           <Row>
@@ -309,12 +311,12 @@ const SiteRiskAnalyzer = (props) => {
                 <CardHeader>
                   <h3 className="mt-2">What makes a Web Site secure?</h3>
                 </CardHeader>
-                <CardBody>
+                <CardBody className="text-justify">
                   <p>
-                    Look at the uniform resource locator (URL) of the website. A secure URL should begin with “https” rather than “http.” The “s” in “https” stands for secure, which indicates that the site is using a Secure Sockets Layer (SSL) Certificate. This lets you know that all your communication and data is encrypted as it passes from your browser to the website’s server.
+                    Look at the uniform resource locator (URL) of the website. A secure URL should <mark>begin with “https”</mark> rather than “http.” The “s” in “https” stands for secure, which indicates that the site is using a Secure Sockets Layer (SSL) Certificate. This lets you know that all your communication and data is encrypted as it passes from your browser to the website’s server.
                     <br />
                     <br />
-                    Look for a lock icon near your browser’s location field. The lock symbol and related URL containing “https” simply mean that the connection between your web browser and the website server is encrypted, which is important.
+                    <mark>Look for a lock icon near your browser’s location field</mark>. The lock symbol and related URL containing “https” simply mean that the connection between your web browser and the website server is encrypted, which is important.
                     <br />
                     <br />
                     But don’t be fooled into thinking the website you’re going to is secure—it may not be.
@@ -330,9 +332,9 @@ const SiteRiskAnalyzer = (props) => {
                 <CardHeader>
                   <h3 className="mt-2">What Google Web Risk does?</h3>
                 </CardHeader>
-                <CardBody>
+                <CardBody className="text-justify">
                   <p>
-                    Web Risk is a Google Cloud service that lets client applications check URLs against Google's constantly updated lists of unsafe web resources.
+                    Web Risk is a Google Cloud service that lets client applications <mark>check URLs against Google's constantly updated lists of unsafe web resources</mark>.
                     <br />
                     <br />
                     <a
@@ -364,7 +366,7 @@ const SiteRiskAnalyzer = (props) => {
                 <CardHeader>
                   <h3 className="mt-2">How a unsafe site would look like?</h3>
                 </CardHeader>
-                <CardBody>
+                <CardBody className="text-justify">
                   <p>
                     In Certificate Information you will find the data regarding to the URL certificate. You can use this names and Valid information to determinate if the site seems safe.
                     <br />
@@ -394,7 +396,7 @@ const SiteRiskAnalyzer = (props) => {
                 <CardHeader>
                   <h3 className="mt-2">How a unsafe site would look like?</h3>
                 </CardHeader>
-                <CardBody>
+                <CardBody className="text-justify">
                   <p>
                     If Google does not have any track of suspicious activity for the domain. Toolkys will show a "No Threats Found" message like:
                     <br />

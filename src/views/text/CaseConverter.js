@@ -109,80 +109,82 @@ const CaseConverter = (props) => {
             </Card>
           </Col>
         </Row>
-        <h3 className="title mt-5 text-center">Text Case Converter &#128288;</h3>
+        <h1 className="title mt-5 text-center">Case Converter &#128288;</h1>
         <CardBody>
           <Row>
             <Col sx="4">
-              <h3 className="mt-2">Convert Text to Upper Case</h3>
-              <p>
-                The uppercase converter will change any text into capital letters. It will keep all existing capital letters and convert all lowercase letters to capitals.
-              </p>
-              <br />
-              <br />
-              Using all capital letters for your sentence can help it stand out to readers. This converter is a quick and easy way to change headers, titles, and large amounts of text into capital letters.
-              <br />
-              <br />
-              <p className="blockquote">
-                HERE IS AN EXAMPLE OF UPPERCASE TEXT.
-              </p>
+              <h2 className="mt-2">Convert Text to Upper Case</h2>
+              <div className="text-justify">
+                <p>The uppercase converter will change any text into capital letters. It will keep all existing capital letters and convert all lowercase letters to capitals.</p>
+                <p>
+                  <mark>Using all capital letters for your sentence can help it stand out to readers.</mark>
+                  This converter is a quick and easy way to change headers, titles, and large amounts of text into capital letters.
+                </p>
+                <p className="blockquote">
+                  HERE IS AN EXAMPLE OF UPPERCASE TEXT.
+                </p>
+              </div>
             </Col>
             <Col sx="4">
-              <h3 className="mt-2">Convert Text to Lower Case</h3>
-              <p>
-                The lowercase converter will change all of your text into lowercase letters. This means it will change all capital letters contained within your text (including names, places, titles, and the first word of a new sentence) to lowercase letters.
-              </p>
-              <br />
-              <br />
-              <p className="blockquote">
-                here is an example of lowercase text.
-              </p>
+              <h2 className="mt-2">Convert Text to Lower Case</h2>
+              <div className="text-justify">
+                <p>
+                  The lowercase converter will change all of your text into lowercase letters. This means it will change all capital letters contained within your text (including names, places, titles, and the first word of a new sentence) to lowercase letters.
+                </p>
+                <p className="blockquote">
+                  here is an example of lowercase text.
+                </p>
+              </div>
             </Col>
             <Col sx="4">
-              <h3 className="mt-2">Toggle Case</h3>
-              <p>
-                The toggle case converter will change your lowercase letters to uppercase, and uppercase letters to lowercase.
-              </p>
-              <br />
-              <br />
-              <p className="blockquote">
-                Example: ToGGLE CasE {"->"} tOggle cASe
-              </p>
+              <h2 className="mt-2">Toggle Case</h2>
+              <div className="text-justify">
+                <p>
+                  The toggle case  converter will change your lowercase letters to uppercase, and uppercase letters to lowercase.
+                </p>
+                <p className="blockquote">
+                  Example: ToGGLE CasE {"->"} tOggle cASe
+                </p>
+              </div>
             </Col>
           </Row>
           <Row>
             <Col sx="4">
-              <h3 className="mt-2">Convert Text to Title Case</h3>
-              <p>
-                Also known as Proper Case.
-                The capital case converter will capitalize the first letter of each word. This is great for students, professionals, or bloggers who are writing titles when writing for the web.
-              </p>
-              <br />
-              <br />
-              <p className="blockquote">
-                Here Is An Example Of Proper Case.
-              </p>
+              <h2 className="mt-2">Convert Text to Title Case</h2>
+              <div className="text-justify">
+                <p>
+                  Also known as Proper Case.
+                  The capital case converter will capitalize the first letter of each word. This is great for students, professionals, or bloggers who are writing titles when writing for the web.
+                </p>
+                <p className="blockquote">
+                  Here Is An Example Of Proper Case.
+                </p>
+              </div>
             </Col>
             <Col sx="4">
-              <h3 className="mt-2">Convert Text to Camel Case</h3>
-              <p>
-                Camel case is the practice of writing phrases without spaces or punctuation. It indicates the separation of words with a single capitalized letter, and the first word starting with either case. Common examples include "iPhone" and "eBay". It is also sometimes used in online usernames such as "johnSmith", and to make multi-word domain names more legible.
-              </p>
-              <br />
-              <br />
-              <p className="blockquote">
-                hereIsAnExampleOfCamelCase
-              </p>
+              <h2 className="mt-2">Convert Text to Camel Case</h2>
+              <div className="text-justify">
+                <p>
+                  Camel case is the practice of writing phrases without spaces or punctuation.
+                </p>
+                <p>
+                  <mark>It indicates the separation of words with a single capitalized letter</mark>, and the first word starting with either case. Common examples include "iPhone" and "eBay". It is also sometimes used in online usernames such as "johnSmith", and to make multi-word domain names more legible.
+                </p>
+                <p className="blockquote">
+                  hereIsAnExampleOfCamelCase
+                </p>
+              </div>
             </Col>
             <Col sx="4">
-              <h3 className="mt-2">Convert Text to Random Case</h3>
-              <p>
-                The random case calculator will change your text so that it randomly includes a mix of upper and lowercase letters. Since the random case converter is randomized, different letters of your text will alternate between being uppercase and lowercase every time you use the tool.
-              </p>
-              <br />
-              <br />
-              <p className="blockquote">
-                hErE iS aN eXAmpLe oF RAndOm CaSe.
-              </p>
+              <h2 className="mt-2">Convert Text to Random Case</h2>
+              <div className="text-justify">
+                <p>
+                  The random case calculator will change your text so that it randomly includes a mix of upper and lowercase letters. Since the random case converter is randomized, different letters of your text will alternate between being uppercase and lowercase every time you use the tool.
+                </p>
+                <p className="blockquote">
+                  hErE iS aN eXAmpLe oF RAndOm CaSe.
+                </p>
+              </div>
             </Col>
           </Row>
         </CardBody>

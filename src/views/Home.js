@@ -90,14 +90,12 @@ const Home = (props) => {
           <Col xs="12">
             <Card>
               <CardHeader>
-                <h5 className="card-category">What is?</h5>
               </CardHeader>
               <CardBody>
-                <h4 className="mb-0">
-                  Toolky is a web page with handy web tools.
-                  <br />
-                  At the moment, we started with some essential tools, but it will keep growing. Your suggestions and comments will be more than welcome &#128525;
-                </h4>
+                <h1>[Toolkys] Must-have Online Free Tools</h1>
+                <h3>In Toolkys you will find all online free tools you may need.</h3>
+                <h3>From words counter and web risk analyzer to case converting and JSON visualizer.</h3>
+                At the moment, we started with some essential tools, but it is growing. Your suggestions and comments will be more than welcome &#128525;
               </CardBody>
               <div
                 aria-multiselectable={true}
