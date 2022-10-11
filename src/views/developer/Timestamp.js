@@ -277,27 +277,38 @@ const Timestamp = (props) => {
             </Card>
           </Col>
         </Row>
-        <h3 className="title mt-5 text-center">Timestamps and Date times &#128338;</h3>
+        <h1 className="title mt-5 text-center">Timestamps and Date times &#128338;</h1>
         <CardBody>
           <Row>
             <Col sx="4">
-              <h3 className="mt-2">What is epoch time?</h3>
-              <p>
-                The Unix epoch (or Unix time or POSIX time or Unix timestamp) is the number of seconds that have elapsed since January 1, 1970 (midnight UTC/GMT), not counting leap seconds (in ISO 8601: 1970-01-01T00:00:00Z). Literally speaking the epoch is Unix time 0 (midnight 1/1/1970), but 'epoch' is often used as a synonym for Unix time. S
-              </p>
+              <h2 className="mt-2">What is epoch time?</h2>
+              <div className="text-justify">
+                <p>
+                  The Unix epoch (or Unix time or POSIX time or Unix timestamp) is the number of seconds that have elapsed since January 1, 1970 (midnight UTC/GMT), not counting leap seconds (in ISO 8601: 1970-01-01T00:00:00Z).
+                  <br />
+                  <br />
+                  Literally speaking the epoch is Unix time 0 (midnight 1/1/1970), but 'epoch' is often used as a synonym for Unix time. S
+                </p>
+              </div>
             </Col>
             <Col sx="4">
-              <h3 className="mt-2">This tool</h3>
-              <p>
-                You have a real time panel where you can enter times in either epoch format or human-readable format.
-                <br />
-                <br />
-                For the human-readable dates, the box will react to the on change event, so you need to either copy and paste the entire date, or select one character and hit the key to replace it. Meaning one change at a time.
-              </p>
+              <h2 className="mt-2">This tool</h2>
+              <div className="text-justify">
+                <p>
+                  You have a real time panel where you can enter times in either epoch format or human-readable format.
+                  <br />
+                  <br />
+                  For the human-readable dates, the box will react to the on change event, so you need to either copy and paste the entire date, or select one character and hit the key to replace it. Meaning one change at a time.
+                </p>
+              </div>
             </Col>
             <Col xs="12">
-              <h3 className="mt-5">Current Timestamp Examples</h3>
-              <h5 className="">These examples are showing how to get current unix timestamp in seconds. These examples are returning timestamp in seconds, although some of the languages are returning timestamp in milliseconds.</h5>
+              <h2 className="mt-5">Current Timestamp Examples</h2>
+              <div className="text-justify">
+                <p>
+                  These examples are showing how to get current unix timestamp in seconds. These examples are returning timestamp in seconds, although some of the languages are returning timestamp in milliseconds.
+                </p>
+              </div>
             </Col>
             <Col lg="3" md="6">
               <Card className="card-stats">
@@ -428,8 +439,10 @@ const Timestamp = (props) => {
               </Card>
             </Col>
             <Col xs="12">
-              <h3 className="mt-5">Current Date and Time Examples</h3>
-              <h5 className="">These examples are showing how to get current date and time that could be presented to the end-user.</h5>
+              <h2 className="mt-5">Current Date and Time Examples</h2>
+              <div className="text-justify">
+                <p>These examples are showing how to get current date and time that could be presented to the end-user.</p>
+              </div>
             </Col>
             <Col lg="3" md="6">
               <Card className="card-stats">
@@ -560,8 +573,12 @@ const Timestamp = (props) => {
               </Card>
             </Col>
             <Col xs="12">
-              <h3 className="mt-5">Timestamp to Date Examples</h3>
-              <h5 className="">These examples are showing how to convert timestamp - either in milliseconds or seconds to human readable form.</h5>
+              <h2 className="mt-5">Timestamp to Date Examples</h2>
+              <div className="text-justify">
+                <p>
+                  These examples are showing how to convert timestamp - either in milliseconds or seconds to human readable form.
+                </p>
+              </div>
             </Col>
             <Col lg="3" md="6">
               <Card className="card-stats">

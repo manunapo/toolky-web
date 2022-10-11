@@ -166,33 +166,39 @@ const Json = (props) => {
             </Card>
           </Col>
         </Row>
-        <h3 className="title mt-5 text-center">JSON Visualizer  &#128064;</h3>
+        <h1 className="title mt-5 text-center">JSON Visualizer  &#128064;</h1>
         <CardBody>
           <Row>
             <Col sx="4">
-              <h3 className="mt-2">What is a JSON?</h3>
-              <p>
-                JSON (JavaScript Object Notation) is a lightweight data-interchange format. It is easy for humans to read and write. It is easy for machines to parse and generate.
-                <br />
-              </p>
+              <h2 className="mt-2">What is a JSON?</h2>
+              <div className="text-justify">
+                <p>
+                  JSON (JavaScript Object Notation) is a lightweight data-interchange format. <mark>It is easy for humans to read and write</mark>. It is easy for machines to parse and generate.
+                  <br />
+                </p>
+              </div>
             </Col>
             <Col sx="4">
-              <h3 className="mt-2">How JSON are built?</h3>
-              <p>
-                On two structures:
-                <br />
-                <br />
-                A collection of name/value pairs. In various languages, this is realized as an object, record, struct, dictionary, hash table, keyed list, or associative array.
-                <br />
-                An ordered list of values. In most languages, this is realized as an array, vector, list, or sequence.
-              </p>
+              <h2 className="mt-2">How JSON are built?</h2>
+              <div className="text-justify">
+                <p>
+                  On two structures:
+                  <br />
+                  <br />
+                  A collection of name/value pairs. In various languages, this is realized as an object, record, struct, dictionary, hash table, keyed list, or associative array.
+                  <br />
+                  An ordered list of values. In most languages, this is realized as an array, vector, list, or sequence.
+                </p>
+              </div>
             </Col>
             <Col sx="4">
-              <h3 className="mt-2">Why do we Stringify JSON?</h3>
-              <p>
-                The JSON. stringify() method in Javascript is used to create a JSON string out of it. While developing an application using JavaScript, many times it is needed to serialize the data to strings for storing the data into a database or for sending the data to an API or web server.
-                <br />
-              </p>
+              <h2 className="mt-2">Why do we Stringify JSON?</h2>
+              <div className="text-justify">
+                <p>
+                  The JSON. stringify() method in Javascript is used to create a JSON string out of it. While developing an application using JavaScript, many times it is needed to serialize the data to strings for storing the data into a database or for sending the data to an API or web server.
+                  <br />
+                </p>
+              </div>
             </Col>
           </Row>
         </CardBody>

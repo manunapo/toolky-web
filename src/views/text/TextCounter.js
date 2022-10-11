@@ -154,7 +154,7 @@ const TextCounter = (props) => {
                   <Col xs="12">
                     <div className="numbers">
                       <p className="card-category">Characters</p>
-                      <CardTitle tag="h3">{totalCharacters}</CardTitle>
+                      <CardTitle tag="h2">{totalCharacters}</CardTitle>
                     </div>
                   </Col>
                 </Row>
@@ -168,7 +168,7 @@ const TextCounter = (props) => {
                   <Col xs="12">
                     <div className="numbers">
                       <p className="card-category">Characters without spaces</p>
-                      <CardTitle tag="h3">{totalCharactersWithoutSpaces}</CardTitle>
+                      <CardTitle tag="h2">{totalCharactersWithoutSpaces}</CardTitle>
                     </div>
                   </Col>
                 </Row>
@@ -182,7 +182,7 @@ const TextCounter = (props) => {
                   <Col xs="12">
                     <div className="numbers">
                       <p className="card-category">Words</p>
-                      <CardTitle tag="h3">{totalWords}</CardTitle>
+                      <CardTitle tag="h2">{totalWords}</CardTitle>
                     </div>
                   </Col>
                 </Row>
@@ -196,7 +196,7 @@ const TextCounter = (props) => {
                   <Col xs="12">
                     <div className="numbers">
                       <p className="card-category">Sentences</p>
-                      <CardTitle tag="h3">{totalSentences}</CardTitle>
+                      <CardTitle tag="h2">{totalSentences}</CardTitle>
                     </div>
                   </Col>
                 </Row>
@@ -208,8 +208,8 @@ const TextCounter = (props) => {
           <Col md="8">
             <Card className="fill-parent card-stats">
               <CardHeader>
-                <h5 className="card-category">Online Tool</h5>
-                <CardTitle tag="h3">Character and Text Analyzer</CardTitle>
+                <p className="card-category">Online Tool</p>
+                <CardTitle tag="h2">Character and Text Analyzer</CardTitle>
               </CardHeader>
               <CardBody>
                 <Form action="#">
@@ -281,26 +281,31 @@ const TextCounter = (props) => {
             </Row>
           </Col>
         </Row>
-        <h3 className="title mt-5 text-center">Online Character and Words Counter &#128224;</h3>
+        <h1 className="title mt-5 text-center">Character and Words Counter &#128224;</h1>
         <CardBody>
           <Row>
             <Col sx="4">
-              <h3 className="mt-2">What is a sentence?</h3>
-              <p>
-                A sentence is a group of words which, when they are written down, begin with a capital letter and end with a full stop, question mark, or exclamation mark. Most sentences contain a subject and a verb.
-              </p>
+              <h2 className="mt-2">What is a sentence?</h2>
+              <div className="text-justify">
+                <p>
+                  A sentence is a group of words which, when they are written down, <mark>begin with a capital letter and end with a full stop, question mark, or exclamation mark</mark>. Most sentences contain a subject and a verb.
+                </p>
+              </div>
             </Col>
             <Col sx="4">
-              <h3 className="mt-2">What is a paragraph?</h3>
-              <p>
-                A good example of a paragraph contains a topic sentence, details and a conclusion. 'There are many different kinds of animals that live in China. Tigers and leopards are animals that live in China's forests in the north. In the jungles, monkeys swing in the trees and elephants walk through the brush.
-              </p>
+              <h2 className="mt-2">What is a paragraph?</h2>
+              <div className="text-justify">
+                <p>
+                  A good example of a paragraph <mark>contains a topic sentence, details and a conclusion</mark>. 'There are many different kinds of animals that live in China. Tigers and leopards are animals that live in China's forests in the north. In the jungles, monkeys swing in the trees and elephants walk through the brush.
+                </p>
+              </div>
             </Col>
             <Col xs="12">
-              <h3 className="mt-5">How to estimate the reading time?</h3>
-              <h5 className="">Research varies, but generally, the average adult reads 200-250 words in one minute. You can use this information to calculate the estimated time to read.</h5>
+              <h2 className="mt-5">How to estimate the reading time?</h2>
+              <div className="text-justify">
+                <p className="">Research varies, but generally, <mark>the average adult reads 200-250 words in one minute</mark>. You can use this information to calculate the estimated time to read.</p>
+              </div>
             </Col>
-
           </Row>
         </CardBody>
       </div >
